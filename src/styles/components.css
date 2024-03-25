@@ -1,0 +1,42 @@
+h1 {
+  font-size: 1.8rem;
+  line-height: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+button {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  @apply bg-white;
+  font-weight: 500;
+} 
+
+a {
+  all: unset;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
