@@ -1,4 +1,4 @@
-const IconItems = ({type, fillColor, width, height, animationType}) => {
+const IconItems = ({type, fillColor, width, height, animationType=''}) => {
 
   return (
     <>
