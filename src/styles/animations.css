@@ -1,0 +1,16 @@
+.rotate {
+  animation: rotate infinite 2.4s linear;
+}
+
+@keyframes rotate {
+  from{
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.move-fish {
+  transform: translate(42.5vw, 47.5vh);
+}
