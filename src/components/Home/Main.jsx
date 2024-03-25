@@ -28,7 +28,7 @@ const Main = () => {
         </section>
         {isActive && <Link className="rotate-90" href="/news"><h3><span className={isActive ? "text-white" : ""}>Aktual</span>ności</h3></Link>}
       </div>
-      <footer>
+      <footer className="grid grid-cols-[auto_auto] items-center justify-evenly">
         {isActive && <Link href="/about"><h3>O Nas</h3></Link>}
         {isActive && <Link href="/rules"><h3>Nasze zasady</h3></Link>}
       </footer>

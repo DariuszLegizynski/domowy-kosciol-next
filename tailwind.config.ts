@@ -20,6 +20,9 @@ const config: Config = {
         'white': 'hsl(5, 0%, 100%)',
         'grey': 'hsl(0, 5%, 50%)',
       },
+      borderWidth: {
+        '3': '3px',
+      }
     },
   },
   plugins: [],

@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 export const Hero = () => {
   return (
     <motion.article
-      className="hero w-3/5 h-3/5 flex flex-col p-3 text-white border-3 border-gradient-to-b border-white-primary relative"
+      className="hero w-[60vw] h-[60vh] flex flex-col p-3 text-white hero-border relative"
       initial={{ height: 0 }}
       animate={{ height: "60vh" }}
       transition={{ type: "spring", duration: 2, delay: 1 }}
