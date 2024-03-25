@@ -26,7 +26,7 @@ const Main = () => {
           <IconItems type="fish" animationType="rotate" width={isActive ? "2rem" : null} height={isActive ? "2rem" : null} />
           <span className={`pt-4 ${isActive ? "invisible" : ""}`}>kliknij</span>
         </section>
-        {isActive && <Link className="rotate-90" href="/news"><h3><span className={isActive ? "text-white" : ""}>Aktual</span>ności</h3></Link>}
+        {isActive && <Link className="rotate-90 translate-y-1" href="/news"><h3><span className={isActive ? "text-white" : ""}>Aktual</span>ności</h3></Link>}
       </div>
       <footer className="grid grid-cols-[auto_auto] items-center justify-evenly">
         {isActive && <Link href="/about"><h3>O Nas</h3></Link>}

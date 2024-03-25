@@ -4,3 +4,7 @@
 
   @apply border-3;
 }
+
+.hero-img-transform {
+  transform: translate(-50%, -42.5%);
+}
