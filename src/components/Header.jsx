@@ -4,7 +4,6 @@ import Logo from "@/components/home/Logo"
 import IntroButton from "@/components/home/IntroButton"
 
 const Header = ({ isActive = false }) => {
-	console.log(isActive)
 	return (
 		<header className="fixed top-0 left-0 grid grid-cols-3 items-center justify-items-center w-full h-12 z-10 backdrop-blur-md">
 			<Logo />

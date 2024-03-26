@@ -13,8 +13,6 @@ const Main = () => {
     setIsActive(current => !current)
   }
 
-  console.log(isActive)
-
   return (
     <article className="relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden">
       <div className={`absolute top-0 left-0 h-0 w-0 transition-height duration-500 ease-in-out transition-width delay-500 ${isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""}`} />

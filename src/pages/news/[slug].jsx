@@ -11,8 +11,6 @@ const NewsDetails = () => {
   const router = useRouter()
   const { slug } = router.query
 
-  console.log(slug)
-
   const [ entry, setEntry ] = useState({})
   const [ date, setDate ] = useState('')
 
