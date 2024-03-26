@@ -35,11 +35,14 @@ const News = () => {
   })
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between news-list">
       <Header />
-      <HolyGhost count={count} />
-      <section className='news__list'>
-        {renderedListOfNews}
+      <section className='grid grid-cols-[1fr_auto] w-full'>
+        <section>
+          {renderedListOfNews}
+        </section>
+        <div className='hidden w-16 xxs:block'>&nbsp;</div>
+        <HolyGhost count={count} />
       </section>
     </main>
   );
