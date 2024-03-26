@@ -2,8 +2,8 @@ import { useState } from 'react'
 import Link from "next/link"
 
 // components
-import Hero from "@/components/Home/Hero"
-import Header from '@/components/Home/Header'
+import Hero from "@/components/home/Hero"
+import Header from '@/components/home/Header'
 import IconItems from '@/components/IconItems'
 
 const Main = () => {
