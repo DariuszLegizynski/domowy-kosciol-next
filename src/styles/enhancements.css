@@ -8,3 +8,11 @@
 .hero-img-transform {
   transform: translate(-50%, -42.5%);
 }
+
+.news-list {
+  background-image: url(https://i.imgur.com/Dhl2sbk.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
