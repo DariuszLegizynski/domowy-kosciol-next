@@ -22,7 +22,11 @@ const config: Config = {
       },
       borderWidth: {
         '3': '3px',
-      }
+      },
+      screens: {
+        'xxs': '375px',
+        'xs:': '425px',
+      },
     },
   },
   plugins: [],
