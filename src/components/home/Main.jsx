@@ -3,7 +3,7 @@ import Link from "next/link"
 
 // components
 import Hero from "@/components/home/Hero"
-import Header from '@/components/home/Header'
+import Header from '@/components/Header'
 import IconItems from '@/components/IconItems'
 
 const Main = () => {
@@ -12,6 +12,8 @@ const Main = () => {
   const handleActive = () => {
     setIsActive(current => !current)
   }
+
+  console.log(isActive)
 
   return (
     <article className="relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden">
