@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
 // // Components
-import Header from '@/components/Home/Header'
-import NewsItem from '@/components/News/NewsItem'
-import HolyGhost from '@/components/News/HolyGhost'
+import Header from '@/components/home/Header'
+import NewsItem from '@/components/news/NewsItem'
+import HolyGhost from '@/components/news/HolyGhost'
 import config from '@/config'
 
 
@@ -31,7 +31,12 @@ const News = () => {
   }, [])
 
   let renderedListOfNews = news?.map(newsItem => {
-    return (<NewsItem key={newsItem.id} newsItem={newsItem.attributes} />)
+    return (
+      <NewsItem
+        key={newsItem.id}
+        newsItem={newsItem.attributes}
+        href={`/${newsItem.attributes.slug}`}
+      />)
   })
 
   return (

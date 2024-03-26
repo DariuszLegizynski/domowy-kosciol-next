@@ -13,7 +13,7 @@ const NewsItem: React.FC<NewsItemProps> = ({newsItem}) => {
       <h3 className="py-4 border-b">{newsItem.title}</h3>
       <span className="text-sm text-right text-grey pt-2">{date}</span>
       <p className='py-4'>{newsItem.summary}</p>
-      <p className='text-center'>Więcej...</p>
+      <Link className='text-center' href={`/news/${newsItem.slug}`}>Więcej...</Link>
     </article>
   )
 }

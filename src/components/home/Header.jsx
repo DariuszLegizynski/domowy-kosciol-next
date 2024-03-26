@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import Logo from "@/components/Home/Logo"
-import IntroButton from "@/components/Home/IntroButton"
+import Logo from "@/components/home/Logo"
+import IntroButton from "@/components/home/IntroButton"
 
 const Header = ({ isActive }) => {
 	return (
