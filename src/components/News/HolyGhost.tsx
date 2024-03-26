@@ -27,7 +27,7 @@ const HolyGhost = ({count}) => {
   }, [])
 
 	return (
-		<section className="holy-ghost" style={{ transform: `translateY(${-scrollPosition}%)` }} >
+		<section className="hidden fixed top-0 right-1 xxs:flex flex-col items-center justify-center" style={{ transform: `translateY(${-scrollPosition}%)` }} >
 			{[...Array(count)].map((x, id) => {
 				return <IconItems type="wind" key={id} width="2rem" height="2rem" fillColor="black" animationType="dots" />;
 			})}

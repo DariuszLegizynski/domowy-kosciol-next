@@ -5,24 +5,15 @@ interface NewsItemProps {
 }
 
 const NewsItem: React.FC<NewsItemProps> = ({newsItem}) => {
-  // const date = new Date(newsItem.date.seconds * 1000).toISOString().split("T").shift()
-  
-  
-  const getRandomDate = () => {
-    let end = new Date();
-    let start = new Date();
-    start.setFullYear(start.getFullYear() - 10);
-  
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toISOString().split('T')[0]
-  }
+  const date = newsItem.createdAt.split('T')[0]
 
   return (
-    <article className='news__item'>
-      {/* <img src={newsItem.imgSrc} alt="pic of the meeting" /> */}
-      <h3>NewsItem Title</h3>
-      <span>{getRandomDate()}</span>
-      <p>News Item Text</p>
-      <p>Więcej...</p>
+    <article className='p-5 m-4 border flex flex-col backdrop-blur-sm'>
+      <img src={newsItem.imageLink} alt="pic of the meeting" />
+      <h3 className="py-4 border-b">{newsItem.title}</h3>
+      <span className="text-sm text-right text-grey pt-2">{date}</span>
+      <p className='py-4'>{newsItem.summary}</p>
+      <p className='text-center'>Więcej...</p>
     </article>
   )
 }
