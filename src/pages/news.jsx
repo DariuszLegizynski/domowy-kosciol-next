@@ -37,9 +37,9 @@ const News = () => {
 
   return (
     <Layout>
-      <main className="flex min-h-screen flex-col items-center justify-between news-list">
-        <section className='grid grid-cols-[1fr_auto] w-full'>
-          <section className='grid gap-y-4 px-4 mt-16'>
+      <main className="flex min-h-screen flex-col items-center justify-between news-list pb-8">
+        <section className='grid grid-cols-[1fr_auto] w-full mt-20'>
+          <section className='grid grid-cols-1 gap-x-4 gap-y-4 mx-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {renderedListOfNews}
           </section>
           <div className='hidden w-16 xxs:block'>&nbsp;</div>

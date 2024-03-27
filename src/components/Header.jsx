@@ -5,10 +5,10 @@ import IntroButton from "@/components/home/IntroButton"
 
 const Header = ({ isActive = false }) => {
 	return (
-		<header className="fixed top-0 left-0 grid grid-cols-3 items-center justify-items-center w-full h-12 z-10 backdrop-blur-md">
+		<header className="fixed left-1/2 transform -translate-x-1/2 grid grid-cols-[1fr_auto_1fr] items-center justify-items-center w-[60vw] h-12 z-10 backdrop-blur-md">
 			<Logo />
 			<IntroButton />
-			<Link className={isActive ? "text-white" : "text-black"} href="/contact">
+			<Link className={`${isActive ? "text-white" : "text-black"} justify-self-end`} href="/contact">
 				<h3 className="transition-transform duration-400 ease-in-out transform hover:scale-110 focus:scale-110">Kontakt</h3>
 			</Link>
 		</header>
