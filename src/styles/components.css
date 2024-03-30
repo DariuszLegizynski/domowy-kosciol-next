@@ -10,12 +10,12 @@ h3 {
   @apply text-lg sm:text-xl md:text-2xl xl:text-3xl;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   font-weight: 600;
   letter-spacing: 2px;
 }
@@ -32,7 +32,6 @@ button {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  @apply bg-white;
   font-weight: 500;
 } 
 
