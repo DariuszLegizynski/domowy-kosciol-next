@@ -11,10 +11,10 @@ const NewsItem: React.FC<NewsItemProps> = ({newsItem}) => {
 
   return (
     <Link href={`/news/${newsItem.slug}`}>
-      <article className='p-5 border flex flex-col backdrop-blur-sm min-h-[54rem]'>
+      <article className='p-5 border flex flex-col backdrop-blur-sm sm:min-h-[60rem]'>
         <div>
         <Image className="h-[16rem]" src={newsItem.imageLink} alt={newsItem.imageAlt} height={400} width={600} objectFit="cover" />
-        <h3 className="h-40 py-4 border-b">{newsItem.title}</h3>
+        <h3 className="sm:h-40 py-4 border-b">{newsItem.title}</h3>
         </div>
 
         <span className="text-sm text-right text-grey pt-2">{date}</span>
