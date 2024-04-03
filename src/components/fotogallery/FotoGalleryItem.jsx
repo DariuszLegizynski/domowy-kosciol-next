@@ -4,7 +4,6 @@ import Link from "next/link"
 import checkImageUrl from '@/helpers/check-image-url'
 
 const FotoGalleryItem = ({gallery}) => {
-  console.log({gallery})
   const date = gallery.createdAt.split('T')[0]
   const albumId = gallery.galleryLink.split('/a/')[1]
   
