@@ -18,6 +18,7 @@ const NewsDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = slug ? await fetchNews(`filters[slug][$eq]=${slug}`) : []
+
       if (response[0]) {
         setEntry(response[0].attributes)
         setDate(response[0].attributes.createdAt.split('T')[0])
@@ -29,7 +30,7 @@ const NewsDetails = () => {
   return (
     <Layout>
       <article className='pt-16 border flex flex-col backdrop-blur-sm'>
-        <Image className='self-center w-full md:w-[75%] lg:w-[50%]' src={entry.imageLink} alt={entry.imageAlt} height={400} width={600} objectFit="cover" />
+        <Image className='self-center w-full md:w-[75%] lg:w-[50%]' src={entry.imageLink} alt={entry.imageAlt} height={400} width={600} />
         <section className='p-8 md:max-w-[62rem] mx-auto'>
           <h3 className="py-8 border-b">{entry.title}</h3>
           <span className="flex justify-end text-grey pt-2">{date}</span>

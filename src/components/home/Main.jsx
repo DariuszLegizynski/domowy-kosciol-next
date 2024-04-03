@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from "next/link"
 
 // components
@@ -28,7 +28,7 @@ const Main = () => {
         </section>
         {isActive && <Link className="rotate-90 translate-y-2" href="/news"><h3 className="before:content-['Aktual'] before:text-white after:content-['ności'] after:text-black" /></Link>}
       </div>
-      <footer className="grid grid-cols-[auto_auto] items-center justify-self-center w-[60vw]">
+      <footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
         {isActive && <Link href="/about"><h3>O Nas</h3></Link>}
         {isActive && <Link href="/rules" className="justify-self-end"><h3>Nasze zasady</h3></Link>}
       </footer>

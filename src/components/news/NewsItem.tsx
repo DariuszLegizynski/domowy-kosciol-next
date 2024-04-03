@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from 'next/image'
 
+import { checkImageUrl } from '@/helpers/checkImageUrl'
 
 interface NewsItemProps {
-  newsItem: string;
+  newsItem: string
 }
 
 const NewsItem: React.FC<NewsItemProps> = ({newsItem}) => {
@@ -13,7 +14,7 @@ const NewsItem: React.FC<NewsItemProps> = ({newsItem}) => {
     <Link href={`/news/${newsItem.slug}`}>
       <article className='p-5 border flex flex-col backdrop-blur-sm sm:min-h-[60rem]'>
         <div>
-        <Image className="h-[16rem]" src={newsItem.imageLink} alt={newsItem.imageAlt} height={400} width={600} objectFit="cover" />
+        <Image className="h-[16rem]" src={checkImageUrl(newsItem.imageLink)} alt={newsItem.imageAlt} height={400} width={600} />
         <h3 className="sm:h-40 py-4 border-b">{newsItem.title}</h3>
         </div>
 
