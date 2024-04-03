@@ -5,14 +5,32 @@
   @apply border-3;
 }
 
-.hero-img-transform {
-  transform: translate(-50%, -42.5%);
-}
-
 .news-list {
   background-image: url(https://i.imgur.com/Dhl2sbk.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+
+.hero-img-transform {
+  transform: translate(-50%, -42.5%);
+}
+
+@media (min-width: 375px) {
+  .hero-img-transform {
+    transform: translate(-50%, -30%);
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-img-transform {
+    transform: translate(-50%, -20%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-img-transform {
+    transform: translate(-50%, -10%);
+  }
 }

@@ -1,33 +1,37 @@
 h1 {
-  font-size: 1.8rem;
-  line-height: 2rem;
+  @apply text-3xl sm:text-4xl md:text-5xl xl:text-6xl;
 }
 
 h2 {
-  font-size: 1.5rem;
-  line-height: 1.6rem;
+  @apply text-2xl sm:text-3xl md:text-4xl xl:text-5xl;
 }
 
 h3 {
-  font-size: 1.2rem;
-  line-height: 1.4rem;
+  @apply text-lg sm:text-xl md:text-2xl xl:text-3xl;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   font-weight: 600;
   letter-spacing: 2px;
+}
+
+p {
+  @apply text-base sm:text-lg md:text-xl xl:text-2xl;
+}
+
+span {
+  @apply text-sm sm:text-base md:text-lg xl:text-xl;
 }
 
 button {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  @apply bg-white;
   font-weight: 500;
 } 
 
