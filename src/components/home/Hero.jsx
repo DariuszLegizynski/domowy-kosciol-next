@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import Image from 'next/image'
 
 export const Hero = () => {
   return (
@@ -19,10 +20,11 @@ export const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 2 }}
       >
-        <img
+        <Image
           className="absolute z-[1] w-64 h-auto bottom-0 left-1/2 transform hero-img-transform"
           src="/images/marriage.png"
           alt="image of a couple in love"
+          width={200} height={200}
         />
       </motion.section>
     </motion.article>
