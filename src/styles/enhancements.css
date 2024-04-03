@@ -1,6 +1,6 @@
 .hero-border {
   border-image-slice: 1;
-  border-image-source: linear-gradient(to bottom, hsl(5, 0%, 100%) 0% 52.1%, hsl(26, 100%, 28%) 52.1% 100%);
+  border-image-source: linear-gradient(to bottom, hsl(5, 0%, 100%) 0% 52.4%, hsl(26, 100%, 28%) 52.4% 100%);
 
   @apply border-3;
 }
