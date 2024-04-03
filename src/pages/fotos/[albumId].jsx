@@ -23,8 +23,6 @@ const Fotos = () => {
     fetchData()
   }, [albumId])
 
-  console.log(images)
-
   let renderFotos = images?.map((image) => {
     return (
       <Image key={image.id} src={image.link} alt="image from gallery" width={800} height={600} />

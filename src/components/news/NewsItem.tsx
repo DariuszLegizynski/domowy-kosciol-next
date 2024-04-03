@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from 'next/image'
 
-import { checkImageUrl } from '@/helpers/checkImageUrl'
+import checkImageUrl from '@/helpers/check-image-url'
 
 interface NewsItemProps {
   newsItem: string
