@@ -48,7 +48,7 @@ const News = () => {
           <div className='hidden w-16 xxs:block'>&nbsp;</div>
           <HolyGhost count={count} />
         </section>
-        <button className='flex flex-col items-center font-semibold' onClick={() => router.back()}><p class="h3">&larr; Powrót</p></button>
+        <button className='flex flex-col items-center font-semibold' onClick={() => router.back()}><p className="h3">&larr; Powrót</p></button>
       </main>
     </Layout>
   );
