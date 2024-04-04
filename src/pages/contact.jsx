@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import IconItems from "@/components/IconItems"
 
 // Layout
 import Layout from "@/components/layout"
@@ -8,9 +9,17 @@ const Contact = () => {
 
 	return (
 		<Layout>
-			<main className="min-h-screen grid grid-rows-[1fr_auto] px-8">
-				<article className="grid justify-between mt-16 sm:grid-cols-2">
-					<section className="grid grid-cols-1 pt-8 sm:order-2">
+			<main className="min-h-screen grid grid-rows-[1fr_auto]">
+				<section className="mt-16">
+					<IconItems
+						type="family"
+						width="16rem"
+						height="8rem"
+					/>
+				</section>
+
+				<article className="grid justify-between sm:grid-cols-2">
+					<section className="grid grid-cols-1 pt-8 px-8 sm:order-2">
 						<div className="h2">Skontaktuj się z nami:</div>
 						<div className="my-8">
 							<div className="h3">Joanna i Michał Kucharkowie</div>
@@ -41,62 +50,61 @@ const Contact = () => {
 							</div>
 						</div>
 					</section>
-					<section className="grid grid-cols-1 mt-8 justify-items-center sm:order-1">
-						<p className="h3">Napisz do nas:</p>
-						<form className="py-2">
-							<div className="flex flex-col items-center mb-2 max-w-full">
+					<section className="grid grid-cols-1 py-8 justify-items-center bg-primary sm:order-1">
+						<p className="h2 text-gold">Napisz do nas:</p>
+						<form className="p-2">
+							<div className="mb-2 grid grid-rows-[auto_auto] max-w-full">
+								<label className="h3 text-gold">Imię (wymagane)</label>
 								<input
-									className="m-3 p-2 w-full bg-gold placeholder-primary"
+									className="p-1 w-full rounded"
 									type="text"
-									placeholder="Imię (wymagane)"
 									required
 								/>
 							</div>
-							<div className="flex flex-col items-center mb-2 max-w-full">
+							<div className="mb-2 max-w-full">
+								<label className="h3 text-gold">Nazwisko</label>
 								<input
-									className="m-3 p-2 w-full bg-gold placeholder-primary"
+									className="p-1 w-full rounded"
 									type="text"
-									placeholder="Nazwisko"
 								/>
 							</div>
-							<div className="flex flex-col items-center mb-2 max-w-full">
+							<div className="mb-2 max-w-full">
+								<label className="h3 text-gold">E-mail (wymagane)</label>
 								<input
-									className="m-3 p-2 w-full bg-gold placeholder-primary"
+									className="p-1 w-full rounded"
 									type="email"
-									placeholder="E-mail (wymagane)"
 									required
 								/>
 							</div>
-							<div className="flex flex-col items-center mb-2 max-w-full">
+							<div className="mb-2 max-w-full">
+								<label className="h3 text-gold">Telefon</label>
 								<input
-									className="m-3 p-2 w-full bg-gold placeholder-primary"
+									className="p-1 w-full rounded"
 									type="number"
-									placeholder="Telefon"
 								/>
 							</div>
-							<div className="flex flex-col items-center mb-2 max-w-full">
-								<label className="h4">Wiadomość</label>
+							<div className="mb-2 max-w-full">
+								<label className="h3 text-gold">Wiadomość</label>
 								<textarea
-									className="m-3 p-2 w-full min-h-36 bg-gold placeholder-primary"
-									placeholder="Co chcesz nam przekazać?"
+									className="p-1 w-full min-h-36"
 									required
 								/>
 							</div>
 							<button
-								className="flex flex-col items-center mx-auto bg-primary text-white px-16 py-4 mt-8"
+								className="flex flex-col items-center mx-auto bg-gold text-primary px-12 py-3 mt-8"
 								type="submit"
 							>
-								<p>Wyślij</p>
+								<p className="h3">Wyślij</p>
 							</button>
 						</form>
+						<button
+							className="flex flex-col items-center font-semibold mx-auto mt-20 text-white"
+							onClick={() => router.back()}
+						>
+							&larr; Powrót
+						</button>
 					</section>
 				</article>
-				<button
-					className="flex flex-col items-center font-semibold mx-auto my-12"
-					onClick={() => router.back()}
-				>
-					&larr; Powrót
-				</button>
 			</main>
 		</Layout>
 	)
