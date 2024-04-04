@@ -23,11 +23,11 @@ const Contact = () => {
 						<div className="h2">Skontaktuj się z nami:</div>
 						<div className="my-8">
 							<div className="h3">Joanna i Michał Kucharkowie</div>
-							<div className="flex items-center">
+							<div className="flex">
 								<p>tel./fax:</p>
 								<strong className="pl-2">+43 699 11100283</strong>
 							</div>
-							<div className="flex items-center">
+							<div className="flex">
 								<p>e-mail:</p>
 								<strong className="pl-2">jmkucharko@gmail.com</strong>
 							</div>
@@ -41,11 +41,11 @@ const Contact = () => {
 								<p>ks Szczepan Matuła</p>
 								<p>01/7123158</p>
 								<a
-									className="p flex items-center pt-8"
+									className="h4 flex items-center justify-center pt-8"
 									href="https://maps.app.goo.gl/MdC4i2TpQr2CWDsi6"
 									target="_blank"
 								>
-									&rarr; Zobacz na mapie
+									Zobacz na mapie
 								</a>
 							</div>
 						</div>
@@ -86,7 +86,7 @@ const Contact = () => {
 							<div className="mb-2 max-w-full">
 								<label className="h3 text-gold">Wiadomość</label>
 								<textarea
-									className="p-1 w-full min-h-36"
+									className="p-1 w-full min-h-36 rounded"
 									required
 								/>
 							</div>
