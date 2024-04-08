@@ -52,7 +52,7 @@ const Contact = () => {
 				<article className="grid grid-cols-1 justify-between">
 					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
 						<div className="fadeInFromLeft">
-							<div className="h3 pb-4">Skontaktuj się z nami:</div>
+							<div className="h3 pb-5">Skontaktuj się z nami:</div>
 							<strong className="p">Joanna i Michał Kucharkowie</strong>
 							<div className="flex py-2 pl-1.5 items-center">
 								<IconItems
