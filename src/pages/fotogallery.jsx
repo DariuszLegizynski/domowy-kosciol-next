@@ -5,9 +5,6 @@ import FotoGalleryItem from "@/components/fotogallery/FotoGalleryItem"
 import { useRouter } from "next/router"
 
 import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
 
 // Layout
 import Layout from "@/components/layout"
