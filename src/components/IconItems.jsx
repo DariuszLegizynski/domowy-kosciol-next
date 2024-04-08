@@ -6,7 +6,13 @@ const IconItems = ({ type, fillColor, width, height, animationType = "" }) => {
 
 	useEffect(() => {
 		if (type === "protected-family") {
-			gsap.to(handRef.current, { duration: 1, x: 0, y: 5, repeat: -1, yoyo: true })
+			gsap.to(handRef.current, {
+				duration: 1,
+				x: 0,
+				y: 5,
+				repeat: -1,
+				yoyo: true,
+			})
 		}
 	}, [type])
 
@@ -254,7 +260,6 @@ const IconItems = ({ type, fillColor, width, height, animationType = "" }) => {
 					width={width}
 					height={height}
 					className={animationType}
-					class="icon"
 					viewBox="0 0 1024 1024"
 				>
 					<path
@@ -446,7 +451,7 @@ const IconItems = ({ type, fillColor, width, height, animationType = "" }) => {
 					width={width}
 					height={height}
 					className={animationType}
-					ariaHidden="true"
+					aria-hidden="true"
 					viewBox="0 0 36 36"
 				>
 					<path
