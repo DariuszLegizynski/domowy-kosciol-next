@@ -1,0 +1,47 @@
+.hero-border {
+	border-image-slice: 1;
+	border-image-source: linear-gradient(to bottom, hsl(5, 0%, 100%) 0% 52.8%, hsl(26, 100%, 28%) 52.8% 100%);
+
+	@apply border-3;
+}
+
+.news-list {
+	background-image: url(https://i.imgur.com/Dhl2sbk.jpeg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.hero-img-transform {
+	transform: translate(-50%, -42.5%);
+}
+
+@media (min-width: 375px) {
+	.hero-img-transform {
+		transform: translate(-50%, -30%);
+	}
+}
+
+@media (min-width: 640px) {
+	.hero-img-transform {
+		transform: translate(-50%, -20%);
+	}
+}
+
+@media (min-width: 768px) {
+	.hero-border {
+		border-image-source: linear-gradient(to bottom, hsl(5, 0%, 100%) 0% 53.1%, hsl(26, 100%, 28%) 53.1% 100%);
+	}
+}
+
+@media (min-width: 1280px) {
+	.hero-img-transform {
+		transform: translate(-50%, -10%);
+	}
+
+	.hero-border {
+		border-image-source: linear-gradient(to bottom, hsl(5, 0%, 100%) 0% 53.5%, hsl(26, 100%, 28%) 53.5% 100%);
+	}
+}
+
