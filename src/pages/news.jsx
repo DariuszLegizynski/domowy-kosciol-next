@@ -1,9 +1,6 @@
 import { useRef, useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
 
 // Layout
 import Layout from "@/components/layout"
@@ -22,6 +19,7 @@ const News = () => {
 	const [count, setCount] = useState(0)
 
 	const revealRefs = useRef([])
+	revealRefs.current = []
 
 	const addToRefs = el => {
 		if (el && !revealRefs.current.includes(el)) {
