@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
+import { useRef, useEffect, useState } from "react"
+import { gsap } from "gsap"
 
 // Layout
 import Layout from "@/components/layout"
 
 // Components
-import BackButton from "@/components/base/BackButton"
 import NewsItem from "@/components/news/NewsItem"
 import HolyGhost from "@/components/news/HolyGhost"
+import BackButton from "@/components/base/BackButton"
 
 // helpers
 import fetchNews from "@/helpers/fetch-news"
@@ -14,6 +15,15 @@ import fetchNews from "@/helpers/fetch-news"
 const News = () => {
 	const [news, setNews] = useState([])
 	const [count, setCount] = useState(0)
+
+	const revealRefs = useRef([])
+	revealRefs.current = []
+
+	const addToRefs = el => {
+		if (el && !revealRefs.current.includes(el)) {
+			revealRefs.current.push(el)
+		}
+	}
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -26,9 +36,32 @@ const News = () => {
 		setCount(parseInt(num))
 	}, [])
 
+	useEffect(() => {
+		revealRefs.current.forEach(el => {
+			gsap.fromTo(
+				el,
+				{ autoAlpha: 0, y: 200 },
+				{
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.25,
+					duration: 2,
+					stagger: 0.25,
+
+					scrollTrigger: {
+						trigger: el,
+						start: "top bottom",
+						end: "bottom center",
+					},
+				}
+			)
+		})
+	})
+
 	let renderedListOfNews = news.map(newsItem => {
 		return (
 			<NewsItem
+				addToRefs={addToRefs}
 				key={newsItem.id}
 				newsItem={newsItem.attributes}
 				href={`/${newsItem.attributes.slug}`}
