@@ -44,7 +44,7 @@ const Contact = () => {
 			<main className="min-h-screen grid grid-rows-[1fr_auto]">
 				<section className="mt-16 flex flex-col items-center lg:mt-20 lg:mb-8 fadeIn">
 					<IconItems
-						type="family"
+						type="family_2"
 						width="16rem"
 						height="8rem"
 					/>
