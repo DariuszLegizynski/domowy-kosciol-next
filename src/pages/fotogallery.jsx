@@ -1,8 +1,7 @@
 import { useRef, useState, useEffect } from "react"
 import fetchAlbums from "@/helpers/fetch-albums"
 import FotoGalleryItem from "@/components/fotogallery/FotoGalleryItem"
-
-import { useRouter } from "next/router"
+import BackButton from "@/components/base/BackButton"
 
 import { gsap } from "gsap"
 
@@ -10,8 +9,6 @@ import { gsap } from "gsap"
 import Layout from "@/components/layout"
 
 const Fotogallery = () => {
-	const router = useRouter()
-
 	const [galleries, setGalleries] = useState([])
 
 	const revealRefs = useRef([])
@@ -69,12 +66,7 @@ const Fotogallery = () => {
 				<section className="grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-y-16">
 					{renderGalleries}
 				</section>
-				<button
-					className="flex flex-col items-center font-semibold py-8"
-					onClick={() => router.back()}
-				>
-					<p className="h3">&larr; Powrót</p>
-				</button>
+				<BackButton />
 			</main>
 		</Layout>
 	)

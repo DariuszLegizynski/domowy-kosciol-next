@@ -1,14 +1,12 @@
 import { useRef, useEffect } from "react"
-import { useRouter } from "next/router"
 import IconItems from "@/components/IconItems"
+import BackButton from "@/components/base/BackButton"
 import { gsap } from "gsap"
 
 // Layout
 import Layout from "@/components/layout"
 
 const Contact = () => {
-	const router = useRouter()
-
 	const revealRefs = useRef([])
 	revealRefs.current = []
 
@@ -166,12 +164,7 @@ const Contact = () => {
 								<strong className="p">Wyślij</strong>
 							</button>
 						</form>
-						<button
-							className="flex flex-col items-center font-semibold mx-auto mt-20 text-white"
-							onClick={() => router.back()}
-						>
-							&larr; Powrót
-						</button>
+						<BackButton />
 					</section>
 				</article>
 			</main>
