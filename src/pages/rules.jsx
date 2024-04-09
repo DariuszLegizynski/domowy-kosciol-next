@@ -1,9 +1,17 @@
-const Rules = () => {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      Hello from Rules
-    </main>
-  );
+import { useRouter } from "next/router"
+
+const BackButton = () => {
+	const router = useRouter()
+
+	return (
+		<button
+			className="flex flex-col items-center font-semibold py-8"
+			onClick={() => router.back()}
+		>
+			<p className="h3 flex before:content-['←']">Powrót</p>
+		</button>
+	)
 }
 
-export default Rules
+export default BackButton
+
