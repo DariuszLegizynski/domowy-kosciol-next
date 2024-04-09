@@ -1,14 +1,17 @@
-import BackButton from "@/components/base/BackButton"
+import { useRouter } from "next/router"
 
-const Rules = () => {
+const BackButton = () => {
+	const router = useRouter()
+
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between">
-			<article>
-				<h1>W Budowie</h1>
-				<BackButton />
-			</article>
-		</main>
+		<button
+			className="flex flex-col items-center font-semibold py-8"
+			onClick={() => router.back()}
+		>
+			<p className="h3 flex before:content-['←']">Powrót</p>
+		</button>
 	)
 }
 
-export default Rules
+export default BackButton
+
