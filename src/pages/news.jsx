@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from "react"
-import { useRouter } from "next/router"
 import { gsap } from "gsap"
 
 // Layout
@@ -8,13 +7,12 @@ import Layout from "@/components/layout"
 // Components
 import NewsItem from "@/components/news/NewsItem"
 import HolyGhost from "@/components/news/HolyGhost"
+import BackButton from "@/components/base/BackButton"
 
 // helpers
 import fetchNews from "@/helpers/fetch-news"
 
 const News = () => {
-	const router = useRouter()
-
 	const [news, setNews] = useState([])
 	const [count, setCount] = useState(0)
 
@@ -81,12 +79,7 @@ const News = () => {
 					<div className="hidden w-16 xxs:block">&nbsp;</div>
 					<HolyGhost count={count} />
 				</section>
-				<button
-					className="flex flex-col items-center font-semibold"
-					onClick={() => router.back()}
-				>
-					<p className="h3">&larr; Powrót</p>
-				</button>
+				<BackButton />
 			</main>
 		</Layout>
 	)
