@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ['i.imgur.com', 'imgur.com'],
-  },
-};
+	env: {
+		STRAPI_TOKEN: process.env.STRAPI_TOKEN,
+		API_URL: process.env.API_URL,
+	},
+	images: {
+		domains: ["i.imgur.com", "imgur.com"],
+	},
+}
 
-export default nextConfig;
+export default nextConfig
+
