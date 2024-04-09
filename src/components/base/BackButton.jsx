@@ -5,7 +5,7 @@ const BackButton = () => {
 
 	return (
 		<button
-			className="flex flex-col items-center font-semibold py-8"
+			className="flex flex-col w-full items-center font-semibold py-8"
 			onClick={() => router.back()}
 		>
 			<p className="h3 flex before:content-['←']">Powrót</p>
