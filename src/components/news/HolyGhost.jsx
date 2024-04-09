@@ -53,3 +53,4 @@ const HolyGhost = ({ count }) => {
 }
 
 export default HolyGhost
+
