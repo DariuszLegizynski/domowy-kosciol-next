@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { useRouter } from "next/router"
 
 import BackButton from "@/components/base/BackButton"
 
@@ -10,6 +11,7 @@ import Layout from "@/components/layout"
 import fetchImages from "@/helpers/fetch-images"
 
 const Fotos = () => {
+	const router = useRouter()
 	const { albumId } = router.query
 
 	const [images, setImages] = useState([])
