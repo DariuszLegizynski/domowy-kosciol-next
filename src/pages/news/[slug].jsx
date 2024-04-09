@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { useRouter } from "next/router"
 
 import BackButton from "@/components/base/BackButton"
 
@@ -10,6 +11,7 @@ import Layout from "@/components/layout"
 import fetchNews from "@/helpers/fetch-news"
 
 const NewsDetails = () => {
+	const router = useRouter()
 	const { slug } = router.query
 
 	const [entry, setEntry] = useState({})
@@ -56,3 +58,4 @@ const NewsDetails = () => {
 }
 
 export default NewsDetails
+
