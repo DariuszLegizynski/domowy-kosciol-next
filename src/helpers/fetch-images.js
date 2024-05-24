@@ -1,17 +1,8 @@
-const fetchImages = async (albumId) => {
-  
-  const clientId = "0c9a714fb4873aa"
-  const imgurOptions = {
-    method: 'GET',
-    headers: {
-      Authorization: "Client-ID " + clientId
-    },
-  }
+const fetchImages = async galleryId => {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/galleries/${galleryId}?populate=images`)
+	const images = await response.json()
 
-  const response = await fetch(`https://api.imgur.com/3/album/${albumId}/images`, imgurOptions)
-  const images = await response.json()
-
-  return images
+	return images.data.attributes.images
 }
 
 export default fetchImages
