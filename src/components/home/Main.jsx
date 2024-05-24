@@ -23,10 +23,7 @@ const Main = () => {
 			{isActive && <Header isActive={isActive} />}
 			<div className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center">
 				{isActive && (
-					<Link
-						className="rotate-[270deg] translate-y-1"
-						href="/fotogallery"
-					>
+					<Link className="rotate-[270deg] translate-y-1" href="/fotogalleries">
 						<h3 className="before:content-['Zd'] before:text-black after:content-['jęcia'] after:text-white fadeInFromTop" />
 					</Link>
 				)}
@@ -43,37 +40,23 @@ const Main = () => {
 					}`}
 					onClick={() => handleActive(isActive)}
 				>
-					<IconItems
-						type="fish"
-						animationType="rotate"
-						width={isActive ? "2rem" : null}
-						height={isActive ? "2rem" : null}
-					/>
+					<IconItems type="fish" animationType="rotate" width={isActive ? "2rem" : null} height={isActive ? "2rem" : null} />
 					<span className={`pt-4 ${isActive ? "invisible" : ""}`}>kliknij</span>
 				</section>
 				{isActive && (
-					<Link
-						className="rotate-90 translate-y-2 fadeInFromRight"
-						href="/news"
-					>
+					<Link className="rotate-90 translate-y-2 fadeInFromRight" href="/news">
 						<h3 className="before:content-['Aktual'] before:text-white after:content-['ności'] after:text-black" />
 					</Link>
 				)}
 			</div>
 			<footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
 				{isActive && (
-					<Link
-						href="/about"
-						className="fadeInFromBottom"
-					>
+					<Link href="/about" className="fadeInFromBottom">
 						<h3>O Nas</h3>
 					</Link>
 				)}
 				{isActive && (
-					<Link
-						href="/rules"
-						className="justify-self-end fadeInFromBottom"
-					>
+					<Link href="/rules" className="justify-self-end fadeInFromBottom">
 						<h3>Nasze zasady</h3>
 					</Link>
 				)}
