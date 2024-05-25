@@ -50,7 +50,7 @@ const Fotogallery = () => {
 	})
 
 	let renderGalleries = galleries?.map(gallery => {
-		return <FotoGallery addToRefs={addToRefs} key={`gallery_${gallery.id}`} gallery={gallery.attributes} galleryId={gallery.id} />
+		return <FotoGallery addToRefs={addToRefs} key={`gallery_${gallery.id}`} gallery={gallery.attributes} gallerySlug={gallery.attributes.slug} />
 	})
 
 	return (
