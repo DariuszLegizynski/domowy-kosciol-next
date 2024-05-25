@@ -1,18 +1,8 @@
 const fetchAlbums = async () => {
-	const reqOptions = {
-		Headers: {
-			Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-		},
-	}
-
-	const albumsData = await fetch(
-		`${process.env.API_URL}/api/galleries`,
-		reqOptions
-	)
+	const albumsData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/galleries?populate=coverImage`)
 	const albums = await albumsData.json()
 
 	return albums.data
 }
 
 export default fetchAlbums
-

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import fetchAlbums from "@/helpers/fetch-albums"
-import FotoGalleryItem from "@/components/fotogallery/FotoGalleryItem"
+import FotoGallery from "@/components/fotogallery/FotoGallery"
 import BackButton from "@/components/base/BackButton"
 
 import { gsap } from "gsap"
@@ -50,22 +50,14 @@ const Fotogallery = () => {
 	})
 
 	let renderGalleries = galleries?.map(gallery => {
-		return (
-			<FotoGalleryItem
-				addToRefs={addToRefs}
-				key={`gallery_${gallery.id}`}
-				gallery={gallery.attributes}
-			/>
-		)
+		return <FotoGallery addToRefs={addToRefs} key={`gallery_${gallery.id}`} gallery={gallery.attributes} galleryId={gallery.id} />
 	})
 
 	return (
 		<Layout>
 			<main className="grid grid-cols-1 items-center justify-between">
 				<h1 className="text-center mt-24 mb-12">Zdjęcia</h1>
-				<section className="grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-y-16">
-					{renderGalleries}
-				</section>
+				<section className="grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-y-16">{renderGalleries}</section>
 				<BackButton />
 			</main>
 		</Layout>
@@ -73,4 +65,3 @@ const Fotogallery = () => {
 }
 
 export default Fotogallery
-
