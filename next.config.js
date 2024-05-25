@@ -5,9 +5,8 @@ const nextConfig = {
 		API_URL: process.env.API_URL,
 	},
 	images: {
-		domains: ["i.imgur.com", "imgur.com"],
+		domains: ["i.imgur.com", "imgur.com", "localhost"],
 	},
 }
 
-export default nextConfig
-
+module.exports = nextConfig
