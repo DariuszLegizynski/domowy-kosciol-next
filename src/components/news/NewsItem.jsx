@@ -8,18 +8,15 @@ const NewsItem = ({ newsItem, addToRefs }) => {
 
 	return (
 		<Link href={`/news/${newsItem.slug}`}>
-			<article
-				ref={addToRefs}
-				className="p-5 border flex flex-col backdrop-blur-sm sm:min-h-[60rem]"
-			>
+			<article ref={addToRefs} className="p-5 border flex flex-col backdrop-blur-sm sm:min-h-[60rem]">
 				<div>
-					<Image
+					{/* <Image
 						className="h-[16rem]"
-						src={checkImageUrl(newsItem.imageLink)}
+						src={}
 						alt={newsItem.imageAlt}
 						height={400}
 						width={600}
-					/>
+					/> */}
 					<h3 className="sm:h-40 py-4 border-b">{newsItem.title}</h3>
 				</div>
 
