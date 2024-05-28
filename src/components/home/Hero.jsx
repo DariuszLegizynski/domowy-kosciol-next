@@ -1,34 +1,48 @@
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import Image from 'next/image'
+import Image from "next/image"
 
-export const Hero = () => {
-  return (
-    <motion.article
-      className="hero w-[60vw] h-[60vh] flex flex-col p-3 text-white hero-border relative"
-      initial={{ height: 0 }}
-      animate={{ height: "60vh" }}
-      transition={{ type: "spring", duration: 2, delay: 1 }}
-    >
-      <section className="z-10">
-        <h1>Drogi<br/>Przybyszu,</h1>
-        <h3 className='py-3'>witaj na stronie</h3>
-        <h2>Domowego Kościoła</h2>
-        <p>w Wiedniu</p>
-      </section>
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 2 }}
-      >
-        <Image
-          className="absolute z-[1] w-64 h-auto bottom-0 left-1/2 transform hero-img-transform"
-          src="/images/marriage.png"
-          alt="image of a couple in love"
-          width={200} height={200}
-        />
-      </motion.section>
-    </motion.article>
-  )
+const Hero = () => {
+	const [heroContent, setHeroContent] = useState({})
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/home-pages?populate=heroImage`)
+			const content = await response.json()
+
+			setHeroContent(content.data[0].attributes)
+		}
+		fetchData()
+	}, [])
+
+	console.log(heroContent)
+
+	return (
+		<motion.article
+			className="hero w-[60vw] h-[60vh] flex flex-col p-3 text-white hero-border relative"
+			initial={{ height: 0 }}
+			animate={{ height: "60vh" }}
+			transition={{ type: "spring", duration: 2, delay: 1 }}
+		>
+			<section
+				className="z-10"
+				dangerouslySetInnerHTML={{
+					__html: heroContent?.content?.map(item => item.children.map(child => child.text).join("")).join(""),
+				}}
+			></section>
+			<motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 2 }}>
+				{heroContent.heroImage?.data.attributes.url && (
+					<Image
+						className="absolute z-[1] w-64 h-auto bottom-0 left-1/2 transform hero-img-transform"
+						src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${heroContent.heroImage?.data.attributes.url}`}
+						alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${heroContent.heroImage?.data.attributes.alternativeText}`}
+						width={400}
+						height={600}
+					/>
+				)}
+			</motion.section>
+		</motion.article>
+	)
 }
 
 export default Hero
