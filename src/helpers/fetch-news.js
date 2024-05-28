@@ -1,18 +1,8 @@
-const fetchNews = async params => {
-	const reqOptions = {
-		Headers: {
-			Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-		},
-	}
-
-	const newsData = await fetch(
-		`${process.env.API_URL}/api/news?populate=*&${params}`,
-		reqOptions
-	)
+const fetchNews = async () => {
+	const newsData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/news?populate=coverImage`)
 	const response = await newsData.json()
 
 	return response.data
 }
 
 export default fetchNews
-
