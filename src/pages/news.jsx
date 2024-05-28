@@ -36,6 +36,8 @@ const News = () => {
 		setCount(parseInt(num))
 	}, [])
 
+	console.log(news)
+
 	useEffect(() => {
 		revealRefs.current.forEach(el => {
 			gsap.fromTo(
@@ -59,14 +61,7 @@ const News = () => {
 	})
 
 	let renderedListOfNews = news.map(newsItem => {
-		return (
-			<NewsItem
-				addToRefs={addToRefs}
-				key={newsItem.id}
-				newsItem={newsItem.attributes}
-				href={`/${newsItem.attributes.slug}`}
-			/>
-		)
+		return <NewsItem addToRefs={addToRefs} key={newsItem.id} newsItem={newsItem.attributes} />
 	})
 
 	return (
