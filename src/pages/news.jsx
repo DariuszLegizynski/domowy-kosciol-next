@@ -36,8 +36,6 @@ const News = () => {
 		setCount(parseInt(num))
 	}, [])
 
-	console.log(news)
-
 	useEffect(() => {
 		revealRefs.current.forEach(el => {
 			gsap.fromTo(

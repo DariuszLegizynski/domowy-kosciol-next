@@ -15,8 +15,6 @@ const Hero = () => {
 		fetchData()
 	}, [])
 
-	console.log(heroContent)
-
 	return (
 		<motion.article
 			className="hero w-[60vw] h-[60vh] flex flex-col p-3 text-white hero-border relative"
