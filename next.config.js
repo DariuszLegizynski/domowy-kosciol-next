@@ -5,7 +5,7 @@ const nextConfig = {
 		API_URL: process.env.API_URL,
 	},
 	images: {
-		domains: ["i.imgur.com", "imgur.com", "localhost"],
+		domains: [process.env.NEXT_PUBLIC_STRAPI_API_URL],
 	},
 }
 
