@@ -1,8 +1,9 @@
-const fetchImages = async galleryId => {
-	const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/galleries/${galleryId}?populate=images`)
-	const images = await response.json()
+const fetchImages = async filterOption => {
+	const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/galleries${filterOption}`)
 
-	return images.data.attributes.images
+	const gallery = await response.json()
+
+	return gallery.data[0].attributes.images
 }
 
 export default fetchImages
