@@ -49,8 +49,6 @@ const Fotogallery = () => {
 		})
 	})
 
-	console.log({ galleries })
-
 	let renderGalleries = galleries?.map(gallery => {
 		return (
 			<FotoGallery
