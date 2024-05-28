@@ -12,18 +12,18 @@ import fetchImages from "@/helpers/fetch-images"
 
 const Fotos = () => {
 	const router = useRouter()
-	const { id, galleryId } = router.query
+	const { galleryId } = router.query
 
 	const [images, setImages] = useState([])
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = id ? await fetchImages(`?filters[slug][$eq]=${galleryId}&populate=images`) : []
+			const response = galleryId ? await fetchImages(`?filters[slug][$eq]=${galleryId}&populate=images`) : []
 
 			setImages(response.data)
 		}
 		fetchData()
-	}, [id])
+	}, [galleryId])
 
 	let renderFotos = images?.map(image => (
 		<Image
