@@ -11,7 +11,7 @@ const FotoGallery = ({ addToRefs, gallery, gallerySlug }) => {
 				<h3>{gallery.title}</h3>
 				<Image
 					src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${gallery.coverImage.data.attributes.url}`}
-					alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${gallery.coverImage.data.attributes.alternativeText}`}
+					alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${gallery.coverImage.data.attributes.alternativeText}`}
 					height={400}
 					width={600}
 				/>

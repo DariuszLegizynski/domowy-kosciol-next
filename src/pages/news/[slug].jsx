@@ -36,7 +36,7 @@ return (
 				<Image
 					className="self-center w-full md:w-[75%] lg:w-[50%]"
 					src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${entry.coverImage?.data.attributes.url}`}
-					alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${entry.coverImage?.data.attributes.alternativeText}`}
+					alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${entry.coverImage?.data.attributes.alternativeText}`}
 					height={400}
 					width={600}
 				/>

@@ -29,7 +29,7 @@ const Fotos = () => {
 		<Image
 			key={image.id}
 			src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${image.attributes.url}`}
-			alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${image.attributes.alternativeText}`}
+			alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${image.attributes.alternativeText}`}
 			width={800}
 			height={600}
 		/>

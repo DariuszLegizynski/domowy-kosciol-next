@@ -11,7 +11,7 @@ const NewsItem = ({ newsItem, addToRefs }) => {
 					<Image
 						className="h-[16rem]"
 						src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${newsItem.coverImage.data.attributes.url}`}
-						alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${newsItem.coverImage.data.attributes.alternativeText}`}
+						alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${newsItem.coverImage.data.attributes.alternativeText}`}
 						height={400}
 						width={600}
 					/>
