@@ -19,8 +19,6 @@ h2,
 .h2,
 h3,
 .h3,
-h4,
-.h4,
 h5,
 .h5,
 h6,
@@ -29,13 +27,39 @@ h6,
 	letter-spacing: 2px;
 }
 
+.h4,
+h4 {
+	@apply text-sm text-secondary uppercase tracking-widest;
+	font-weight: 400;
+}
+
 p,
 .p {
 	@apply text-base sm:text-lg md:text-xl xl:text-2xl;
 }
 
+.span,
 span {
-	@apply text-sm sm:text-base md:text-lg xl:text-xl;
+	@apply text-sm sm:text-base md:text-lg xl:text-xl uppercase tracking-widest;
+	font-weight: 600;
+}
+
+label {
+	@apply text-primary text-sm tracking-wide;
+	font-weight: 600;
+}
+
+input {
+	@apply outline-none;
+}
+
+input::placeholder {
+	@apply text-black text-sm sm:text-base md:text-lg xl:text-xl uppercase tracking-widest;
+	font-weight: 600;
+}
+
+textarea::placeholder {
+	@apply text-primary;
 }
 
 button {
@@ -55,4 +79,3 @@ img {
 	height: auto;
 	object-fit: cover;
 }
-
