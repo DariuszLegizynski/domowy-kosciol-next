@@ -5,27 +5,36 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 img {
-    display: block;
+	display: block;
 }
 
 body {
-  font-family: 'Times New Roman', serif;
-  margin: 0;
-  padding: 0;
+	font-family: "Times New Roman", serif;
+	margin: 0;
+	padding: 0;
 }
+
+.about-background-image {
+	background-image: url("/images/about/hero.jpg");
+	background-size: cover;
+	background-position: center 0;
+	background-repeat: no-repeat;
+	min-height: 40vh;
+}
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }
