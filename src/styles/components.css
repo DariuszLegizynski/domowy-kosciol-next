@@ -8,23 +8,27 @@ h2,
 	@apply text-2xl sm:text-3xl md:text-4xl xl:text-5xl;
 }
 
-h3,
-.h3 {
-	@apply text-lg sm:text-xl md:text-2xl xl:text-3xl;
-}
-
 h1,
 .h1,
 h2,
-.h2,
+.h2 {
+	font-family: "Merriweather", serif;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
 h3,
 .h3,
-h5,
-.h5,
-h6,
-.h6 {
-	font-weight: 600;
-	letter-spacing: 2px;
+h4,
+.h4 {
+	font-family: "Nunito", serif;
+	letter-spacing: 1px;
+}
+
+h3,
+.h3 {
+	@apply text-lg sm:text-xl md:text-2xl xl:text-3xl;
+	font-weight: 700;
 }
 
 .h4,
