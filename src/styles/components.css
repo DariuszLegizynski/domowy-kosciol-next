@@ -12,17 +12,9 @@ h1,
 .h1,
 h2,
 .h2 {
-	font-family: "Merriweather", serif;
-	font-weight: 700;
+	font-family: "Garamond", serif;
+	font-weight: 400;
 	letter-spacing: 2px;
-}
-
-h3,
-.h3,
-h4,
-.h4 {
-	font-family: "Nunito", serif;
-	letter-spacing: 1px;
 }
 
 h3,
@@ -35,6 +27,14 @@ h3,
 h4 {
 	@apply text-sm text-secondary uppercase tracking-widest;
 	font-weight: 400;
+}
+
+h3,
+.h3,
+h4,
+.h4 {
+	font-family: "Nunito", serif;
+	letter-spacing: 1px;
 }
 
 p,
@@ -82,4 +82,19 @@ img {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
+}
+
+a:hover,
+button:hover,
+a:hover *,
+button:hover * {
+	transition: color 300ms ease-in-out;
+	@apply text-accent;
+}
+
+a,
+button,
+a *,
+button * {
+	transition: color 300ms ease-out;
 }

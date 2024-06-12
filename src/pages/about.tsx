@@ -22,9 +22,9 @@ const About = () => {
 					<h1 className="text-center text-white pb-2">czyli kim właściwie jesteśmy?</h1>
 				</section>
 				<nav className="grid grid-cols-3 py-3 text-white bg-tertiary w-full">
-					<BaseButton onClick={handleClick} type="link" step={0} text="O nas" />
-					<BaseButton onClick={handleClick} type="link" step={1} text="Nasza Ikona" />
-					<BaseButton onClick={handleClick} type="link" step={2} text="Świadectwa" />
+					<BaseButton onClick={handleClick} type="step" step={0} text="O nas" />
+					<BaseButton onClick={handleClick} type="step" step={1} text="Nasza Ikona" />
+					<BaseButton onClick={handleClick} type="step" step={2} text="Świadectwa" />
 				</nav>
 				{step === 0 && <AboutPage />}
 				{step === 1 && <IconPage />}

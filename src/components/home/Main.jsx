@@ -17,14 +17,15 @@ const Main = () => {
 		<article className="relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden">
 			<div
 				className={`absolute top-0 left-0 h-0 w-0 transition-height duration-500 ease-in-out transition-width delay-500 ${
-					isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""
+					isActive ? "absolute top-0 left-0 bg-secondary h-1/2 w-full z-[-1]" : ""
 				}`}
 			/>
 			{isActive && <Header isActive={isActive} />}
 			<div className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center">
 				{isActive && (
-					<Link className="rotate-[270deg] translate-y-1" href="/fotogalleries">
-						<h3 className="before:content-['Zd'] before:text-black after:content-['jęcia'] after:text-white fadeInFromTop" />
+					<Link className="flex rotate-[270deg] translate-y-1" href="/fotogalleries">
+						<h3 className="text-primary fadeInFromTop">Zd</h3>
+						<h3 className="text-white fadeInFromTop">jęcia</h3>
 					</Link>
 				)}
 				<section className={isActive ? "" : "invisible"}>
@@ -44,8 +45,9 @@ const Main = () => {
 					<span className={`pt-4 ${isActive ? "invisible" : ""}`}>kliknij</span>
 				</section>
 				{isActive && (
-					<Link className="rotate-90 translate-y-2 fadeInFromRight" href="/news">
-						<h3 className="before:content-['Aktual'] before:text-white after:content-['ności'] after:text-black" />
+					<Link className="flex rotate-90 translate-y-2 fadeInFromRight" href="/news">
+						<h3 className="text-white fadeInFromTop">Aktual</h3>
+						<h3 className="text-primary fadeInFromTop">ności</h3>
 					</Link>
 				)}
 			</div>
@@ -66,4 +68,3 @@ const Main = () => {
 }
 
 export default Main
-
