@@ -4,11 +4,15 @@ import AboutPage from "@/components/about/AboutPage"
 import IconPage from "@/components/about/IconPage"
 import TestimonialPage from "@/components/about/TestimonialPage"
 
-import Layout from "../components/Layout"
-import BackButton from "@/components/base/BackButton"
+import Layout from "@/components/Layout"
+import BaseButton from "@/components/base/BaseButton"
 
 const About = () => {
-	const [step, setStep] = useState(1)
+	const [step, setStep] = useState(0)
+
+	const handleClick = (newStep: number) => {
+		setStep(newStep)
+	}
 
 	return (
 		<Layout>
@@ -18,14 +22,14 @@ const About = () => {
 					<h1 className="text-center text-white pb-2">czyli kim właściwie jesteśmy?</h1>
 				</section>
 				<nav className="flex gap-x-8 py-4 justify-center text-white bg-tertiary w-full">
-					<button onClick={() => setStep(1)}>O Nas</button>
-					<button onClick={() => setStep(2)}>Nasza Ikona</button>
-					<button onClick={() => setStep(3)}>Świadectwa</button>
+					<BaseButton onClick={handleClick} type="link" step={0} text="O nas" />
+					<BaseButton onClick={handleClick} type="link" step={1} text="Nasza Ikona" />
+					<BaseButton onClick={handleClick} type="link" step={2} text="Świadectwa" />
 				</nav>
-				{step === 1 && <AboutPage />}
-				{step === 2 && <IconPage />}
-				{step === 3 && <TestimonialPage />}
-				<BackButton />
+				{step === 0 && <AboutPage />}
+				{step === 1 && <IconPage />}
+				{step === 2 && <TestimonialPage />}
+				<BaseButton type="back" />
 			</main>
 		</Layout>
 	)

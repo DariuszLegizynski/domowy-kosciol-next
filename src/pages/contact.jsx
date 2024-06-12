@@ -5,7 +5,7 @@ import BaseText from "@/components/base/BaseText"
 import { gsap } from "gsap"
 
 // Layout
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 
 const Contact = () => {
 	const [contactContent, setContactContent] = useState({})
