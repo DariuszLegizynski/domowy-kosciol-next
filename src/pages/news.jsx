@@ -7,7 +7,7 @@ import Layout from "@/components/layout"
 // Components
 import NewsItem from "@/components/news/NewsItem"
 import HolyGhost from "@/components/news/HolyGhost"
-import BackButton from "@/components/base/BackButton"
+import BaseButton from "@/components/base/BaseButton"
 
 // helpers
 import fetchNews from "@/helpers/fetch-news"
@@ -66,17 +66,14 @@ const News = () => {
 		<Layout>
 			<main className="flex min-h-screen flex-col items-center justify-between news-list pb-8">
 				<section className="grid grid-cols-[1fr_auto] w-full mt-20">
-					<section className="grid grid-cols-1 gap-x-4 gap-y-4 mx-4 mb-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-						{renderedListOfNews}
-					</section>
+					<section className="grid grid-cols-1 gap-x-4 gap-y-4 mx-4 mb-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{renderedListOfNews}</section>
 					<div className="hidden w-16 xxs:block">&nbsp;</div>
 					<HolyGhost count={count} />
 				</section>
-				<BackButton />
+				<BaseButton type="back" />
 			</main>
 		</Layout>
 	)
 }
 
 export default News
-

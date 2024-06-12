@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import IconItems from "@/components/IconItems"
-import BackButton from "@/components/base/BackButton"
+import BaseButton from "@/components/base/BaseButton"
 import BaseText from "@/components/base/BaseText"
 import { gsap } from "gsap"
 
@@ -113,7 +113,7 @@ const Contact = () => {
 								<strong className="span">Wyślij</strong>
 							</button>
 						</form>
-						<BackButton />
+						<BaseButton type="back" />
 					</section>
 				</article>
 			</main>

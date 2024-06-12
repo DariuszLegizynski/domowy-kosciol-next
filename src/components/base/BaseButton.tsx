@@ -11,8 +11,6 @@ interface BaseButtonProps {
 const BaseButton: React.FC<BaseButtonProps> = ({ type, text, step = 0, onClick }) => {
 	const router = useRouter()
 
-	// const [currentStep, setCurrentStep] = useState(step)
-
 	const handleClick = (newStep: number) => {
 		if (onClick) {
 			onClick(newStep)
