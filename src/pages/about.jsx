@@ -17,11 +17,11 @@ const About = () => {
 					<h1 className="text-start text-primary pt-2 pl-8">O nas,</h1>
 					<h1 className="text-center text-white pb-2">czyli kim właściwie jesteśmy?</h1>
 				</section>
-				<section className="flex gap-x-8 py-16">
+				<nav className="flex gap-x-8 py-4 justify-center text-white bg-tertiary w-full">
 					<button onClick={() => setStep(1)}>O Nas</button>
 					<button onClick={() => setStep(2)}>Nasza Ikona</button>
 					<button onClick={() => setStep(3)}>Świadectwa</button>
-				</section>
+				</nav>
 				{step === 1 && <AboutPage />}
 				{step === 2 && <IconPage />}
 				{step === 3 && <TestimonialPage />}

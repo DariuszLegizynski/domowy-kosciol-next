@@ -11,7 +11,7 @@ const config: Config = {
 			colors: {
 				primary: "hsl(26, 100%, 28%)",
 				secondary: "hsl(26, 100%, 38%)",
-				tertiary: "hsl(26, 100%, 38%)",
+				tertiary: "hsl(26, 100%, 18%)",
 				gold: "hsl(51, 100%, 50%)",
 				black: "hsl(5, 0%, 0%)",
 				white: "hsl(5, 0%, 100%)",
