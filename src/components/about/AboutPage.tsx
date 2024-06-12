@@ -6,8 +6,8 @@ const AboutPage = () => {
 			<section>
 				<Image className="pb-8" src="/images/about/picture-1.jpg" alt="Happy family" height={400} width={600} />
 				<div className="grid gap-y-2">
-					<h2 className="text-primary text-[3rem] leading-10 pb-2">Kochane małżeństwa!</h2>
-					<p>Macie ochotę na duchową przygodę, która wciągnie Was po uszy?</p>
+					<div className="text-primary text-[2.6rem] leading-[3rem] pb-2">Kochane małżeństwa,</div>
+					<p>macie ochotę na duchową przygodę, która wciągnie Was po uszy?</p>
 					<p>Będzie radośnie, będzie z przytupem i na pewno zabawnie!</p>
 					<p>U nas nie zabraknie rozmów i mega okazji do rozwiązywania własnych problemów z pomocą Bożej łaski płynącej z Sakramentu Małżeństwa.</p>
 				</div>

@@ -21,7 +21,7 @@ const About = () => {
 					<h1 className="text-start text-primary pt-2 pl-8">O nas,</h1>
 					<h1 className="text-center text-white pb-2">czyli kim właściwie jesteśmy?</h1>
 				</section>
-				<nav className="flex gap-x-8 py-4 justify-center text-white bg-tertiary w-full">
+				<nav className="grid grid-cols-3 py-3 text-white bg-tertiary w-full">
 					<BaseButton onClick={handleClick} type="link" step={0} text="O nas" />
 					<BaseButton onClick={handleClick} type="link" step={1} text="Nasza Ikona" />
 					<BaseButton onClick={handleClick} type="link" step={2} text="Świadectwa" />
