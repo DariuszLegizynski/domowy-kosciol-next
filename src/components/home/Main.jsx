@@ -15,13 +15,13 @@ const Main = () => {
 
 	return (
 		<article className="relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden">
-			<div
+			<section
 				className={`absolute top-0 left-0 h-0 w-0 transition-height duration-500 ease-in-out transition-width delay-500 ${
 					isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""
 				}`}
 			/>
 			{isActive && <Header isActive={isActive} />}
-			<div className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center">
+			<section className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center px-1 w-full">
 				{isActive && (
 					<Link className="underline-effect flex rotate-[270deg]" href="/fotogalleries">
 						<h4 className="text-primary fadeInFromTop">Zd</h4>
@@ -52,7 +52,7 @@ const Main = () => {
 						<span />
 					</Link>
 				)}
-			</div>
+			</section>
 			<footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
 				{isActive && (
 					<Link href="/about" className="underline-effect fadeInFromBottom">
