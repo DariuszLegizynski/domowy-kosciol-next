@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect } from "react"
 import IconItems from "@/components/IconItems"
-import BackButton from "@/components/base/BackButton"
+import BaseButton from "@/components/base/BaseButton"
 import BaseText from "@/components/base/BaseText"
 import { gsap } from "gsap"
 
 // Layout
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 
 const Contact = () => {
 	const [contactContent, setContactContent] = useState({})
@@ -107,13 +107,13 @@ const Contact = () => {
 							</div>
 							<div ref={addToRefs} className="mb-2 max-w-full">
 								<label className="span">Wiadomość</label>
-								<textarea placeholder="Napisz nam" className="p-1 w-full min-h-36 border border-secondary" required />
+								<textarea placeholder="Napisz nam" className="p-1 w-full min-h-36 border border-primary" required />
 							</div>
 							<button ref={addToRefs} className="flex flex-col items-center mx-auto bg-primary text-white px-12 py-3 mt-8 round" type="submit">
 								<strong className="span">Wyślij</strong>
 							</button>
 						</form>
-						<BackButton />
+						<BaseButton type="back" />
 					</section>
 				</article>
 			</main>

@@ -23,7 +23,7 @@ const Hero = () => {
 			transition={{ type: "spring", duration: 2, delay: 1 }}
 		>
 			<section
-				className="z-10"
+				className="z-10 text-center pt-16"
 				dangerouslySetInnerHTML={{
 					__html: heroContent?.content?.map(item => item.children.map(child => child.text).join("")).join(""),
 				}}
@@ -31,7 +31,7 @@ const Hero = () => {
 			<motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 2 }}>
 				{heroContent.heroImage?.data.attributes.url && (
 					<Image
-						className="absolute z-[1] w-64 h-auto bottom-0 left-1/2 transform hero-img-transform"
+						className="absolute z-[1] w-64 h-auto -bottom-12 left-1/2 transform hero-img-transform"
 						src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${heroContent.heroImage?.data.attributes.url}`}
 						alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${heroContent.heroImage?.data.attributes.alternativeText}`}
 						width={400}

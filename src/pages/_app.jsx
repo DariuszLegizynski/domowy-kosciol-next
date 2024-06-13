@@ -1,7 +1,4 @@
-import "@/styles/globals.css"
-import "@/styles/animations.css"
-import "@/styles/components.css"
-import "@/styles/enchantments.css"
+import "@/styles/tailwind.css"
 
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -13,4 +10,3 @@ const MyApp = ({ Component, pageProps }) => {
 }
 
 export default MyApp
-
