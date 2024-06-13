@@ -1,3 +1,14 @@
+.underline-effect > span {
+	@apply absolute h-1 bg-black bottom-0 left-0 right-0 mx-auto transform transition-transform duration-300 ease-in-out origin-center;
+	width: 100%;
+	transform: scaleX(0);
+}
+
+.underline-effect:hover > span,
+.underline-effect:focus > span {
+	transform: scaleX(1);
+}
+
 .hero-border {
 	border-image-slice: 1;
 	border-image-source: linear-gradient(to bottom, hsl(5, 0%, 100%) 0% 52.8%, hsl(26, 100%, 28%) 52.8% 100%);

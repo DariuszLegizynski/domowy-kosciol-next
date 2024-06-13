@@ -24,14 +24,15 @@ const BaseButton: React.FC<BaseButtonProps> = ({ type, text, step = 0, onClick }
 				</button>
 			)}
 			{type === "step" && (
-				<button className="text-white" onClick={() => handleClick(step)}>
+				<button className="underline-effect text-white" onClick={() => handleClick(step)}>
 					<p>{text}</p>
+					<span />
 				</button>
 			)}
 			{!type && (
-				<button className="transition-transform duration-300 ease-in-out transform hover:scale-110 focus:scale-110 relative">
-					<h3>{text}</h3>
-					<span className="absolute h-1 bg-accent bottom-0 left-0 w-0 transition-all duration-300 ease-in-out transform origin-center hover:w-full focus:w-full"></span>
+				<button className="underline-effect transition-colors duration-200 ease-in-out transform relative">
+					<h4>{text}</h4>
+					<span />
 				</button>
 			)}
 		</>

@@ -10,10 +10,11 @@ const config: Config = {
 			},
 			colors: {
 				primary: "hsl(26, 100%, 28%)",
-				accent: "hsl(26, 25%, 38%)",
+				accent: "hsl(51, 100%, 50%)",
 				black: "hsl(5, 0%, 0%)",
 				white: "hsl(5, 0%, 100%)",
 				grey: "hsl(0, 5%, 50%)",
+				"white-opacity": "hsla(5, 0%, 100%, 0.15)",
 			},
 			borderWidth: {
 				"3": "3px",

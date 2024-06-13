@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 
 // components
@@ -23,9 +23,10 @@ const Main = () => {
 			{isActive && <Header isActive={isActive} />}
 			<div className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center">
 				{isActive && (
-					<Link className="flex rotate-[270deg] translate-y-1" href="/fotogalleries">
-						<h3 className="text-primary fadeInFromTop">Zd</h3>
-						<h3 className="text-white fadeInFromTop">jęcia</h3>
+					<Link className="underline-effect flex rotate-[270deg]" href="/fotogalleries">
+						<h4 className="text-primary fadeInFromTop">Zd</h4>
+						<h4 className="text-white fadeInFromTop">jęcia</h4>
+						<span />
 					</Link>
 				)}
 				<section className={isActive ? "" : "invisible"}>
@@ -45,21 +46,24 @@ const Main = () => {
 					<span className={`pt-4 ${isActive ? "invisible" : ""}`}>kliknij</span>
 				</section>
 				{isActive && (
-					<Link className="flex rotate-90 translate-y-2 fadeInFromRight" href="/news">
-						<h3 className="text-white fadeInFromTop">Aktual</h3>
-						<h3 className="text-primary fadeInFromTop">ności</h3>
+					<Link className="underline-effect flex rotate-90 translate-y-1.5 fadeInFromRight" href="/news">
+						<h4 className="text-white fadeInFromTop">Aktual</h4>
+						<h4 className="text-primary fadeInFromTop">ności</h4>
+						<span />
 					</Link>
 				)}
 			</div>
 			<footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
 				{isActive && (
-					<Link href="/about" className="fadeInFromBottom">
-						<h3 className="text-primary">O Nas</h3>
+					<Link href="/about" className="underline-effect fadeInFromBottom">
+						<h4 className="text-primary">O Nas</h4>
+						<span />
 					</Link>
 				)}
 				{isActive && (
-					<Link href="/rules" className="justify-self-end fadeInFromBottom">
-						<h3 className="text-primary">Nasze zasady</h3>
+					<Link href="/rules" className="underline-effect justify-self-end fadeInFromBottom">
+						<h4 className="text-primary">Nasze zasady</h4>
+						<span />
 					</Link>
 				)}
 			</footer>
