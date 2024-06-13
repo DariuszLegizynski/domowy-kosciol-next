@@ -24,9 +24,9 @@ const BaseButton: React.FC<BaseButtonProps> = ({ type, text, step = 0, onClick }
 				</button>
 			)}
 			{type === "step" && (
-				<button className="underline-effect text-white" onClick={() => handleClick(step)}>
+				<button className="underline-effect w-fit relative text-white" onClick={() => handleClick(step)}>
 					<p>{text}</p>
-					<span />
+					<span className="absolute bottom-0" />
 				</button>
 			)}
 			{!type && (

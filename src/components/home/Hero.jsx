@@ -23,7 +23,7 @@ const Hero = () => {
 			transition={{ type: "spring", duration: 2, delay: 1 }}
 		>
 			<section
-				className="z-10"
+				className="z-10 text-center pt-16"
 				dangerouslySetInnerHTML={{
 					__html: heroContent?.content?.map(item => item.children.map(child => child.text).join("")).join(""),
 				}}

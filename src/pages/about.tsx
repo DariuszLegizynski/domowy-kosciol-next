@@ -23,7 +23,7 @@ const About = () => {
 						<h1 className="text-center text-white pb-2 px-1">czyli kim właściwie jesteśmy?</h1>
 					</div>
 				</section>
-				<nav className="grid grid-cols-3 py-3 text-white bg-primary w-full">
+				<nav className="grid grid-cols-3 justify-items-center py-3 text-white bg-primary w-full">
 					<BaseButton onClick={handleClick} type="step" step={0} text="O nas" />
 					<BaseButton onClick={handleClick} type="step" step={1} text="Nasza Ikona" />
 					<BaseButton onClick={handleClick} type="step" step={2} text="Świadectwa" />

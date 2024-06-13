@@ -1,5 +1,5 @@
 .underline-effect > span {
-	@apply absolute h-1 bg-black bottom-0 left-0 right-0 mx-auto transform transition-transform duration-300 ease-in-out origin-center;
+	@apply absolute h-1 bg-accent bottom-0 left-0 right-0 mx-auto transform transition-transform duration-500 ease-in-out origin-center;
 	width: 100%;
 	transform: scaleX(0);
 }

@@ -15,7 +15,7 @@ button:hover,
 a:hover *,
 button:hover * {
 	transition: color 300ms ease-in-out;
-	@apply text-black;
+	@apply text-accent;
 }
 
 a,
