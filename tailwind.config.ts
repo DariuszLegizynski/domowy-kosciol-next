@@ -9,9 +9,7 @@ const config: Config = {
 				"gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			colors: {
-				primary: "hsl(26, 50%, 63%)",
-				secondary: "hsl(26, 50%, 63%)",
-				tertiary: "hsl(26, 100%, 18%)",
+				primary: "hsl(26, 100%, 28%)",
 				accent: "hsl(26, 25%, 38%)",
 				black: "hsl(5, 0%, 0%)",
 				white: "hsl(5, 0%, 100%)",

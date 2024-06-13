@@ -31,7 +31,7 @@ const BaseText: React.FC<BaseTextProps> = ({ text, inputFieldType = "text", isRe
 			<input
 				onFocus={handleFocus}
 				onBlur={handleBlur}
-				className={`pl-1 w-full border-b border-secondary transition-all duration-300 ease-in-out bg-transparent`}
+				className={`pl-1 w-full border-b border-priamry transition-all duration-300 ease-in-out bg-transparent`}
 				type={inputFieldType}
 				required={isRequired}
 			/>

@@ -17,8 +17,8 @@ const About = () => {
 	return (
 		<Layout>
 			<main className="flex min-h-screen flex-col items-center justify-center">
-				<section className="about-background-image py-4 px-4 mt-12">
-					<h1 className="text-start text-primary pt-2 pl-8">O nas,</h1>
+				<section className="about-background-image py-4 px-4 mt-12 flex flex-col justify-end">
+					<h1 className="text-start text-white pl-8">O nas,</h1>
 					<h1 className="text-center text-white pb-2">czyli kim właściwie jesteśmy?</h1>
 				</section>
 				<nav className="grid grid-cols-3 py-3 text-white bg-tertiary w-full">

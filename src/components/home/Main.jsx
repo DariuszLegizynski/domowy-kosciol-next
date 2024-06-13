@@ -17,7 +17,7 @@ const Main = () => {
 		<article className="relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden">
 			<div
 				className={`absolute top-0 left-0 h-0 w-0 transition-height duration-500 ease-in-out transition-width delay-500 ${
-					isActive ? "absolute top-0 left-0 bg-secondary h-1/2 w-full z-[-1]" : ""
+					isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""
 				}`}
 			/>
 			{isActive && <Header isActive={isActive} />}
@@ -54,12 +54,12 @@ const Main = () => {
 			<footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
 				{isActive && (
 					<Link href="/about" className="fadeInFromBottom">
-						<h3>O Nas</h3>
+						<h3 className="text-primary">O Nas</h3>
 					</Link>
 				)}
 				{isActive && (
 					<Link href="/rules" className="justify-self-end fadeInFromBottom">
-						<h3>Nasze zasady</h3>
+						<h3 className="text-primary">Nasze zasady</h3>
 					</Link>
 				)}
 			</footer>
