@@ -29,26 +29,26 @@ const Contact = () => {
 		}
 	}
 
-	// useEffect(() => {
-	// 	revealRefs.current.forEach(el => {
-	// 		gsap.fromTo(
-	// 			el,
-	// 			{ autoAlpha: 0, y: 200 },
-	// 			{
-	// 				autoAlpha: 1,
-	// 				y: 0,
-	// 				delay: 0.25,
-	// 				duration: 2,
-	// 				stagger: 0.25,
-	// 				scrollTrigger: {
-	// 					trigger: el,
-	// 					start: "-75px bottom",
-	// 					end: "bottom center",
-	// 				},
-	// 			}
-	// 		)
-	// 	})
-	// })
+	useEffect(() => {
+		revealRefs.current.forEach(el => {
+			gsap.fromTo(
+				el,
+				{ autoAlpha: 0, y: 200 },
+				{
+					autoAlpha: 1,
+					y: 0,
+					delay: 0.25,
+					duration: 2,
+					stagger: 0.25,
+					scrollTrigger: {
+						trigger: el,
+						start: "-75px bottom",
+						end: "bottom center",
+					},
+				}
+			)
+		})
+	})
 
 	return (
 		<Layout>
@@ -57,8 +57,8 @@ const Contact = () => {
 				<article className="grid grid-cols-1 justify-between">
 					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
 						<div className="text-center">
-							<div className="h4 pb-6">Skontaktuj się z&nbsp;nami:</div>
-							<span>{contactContent.name}</span>
+							<p className="pb-6">Skontaktuj się z&nbsp;nami:</p>
+							<div className="h4 uppercase">{contactContent.name}</div>
 							<section className="flex flex-col items-center">
 								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="phone" width="2rem" height="1.8rem" />
@@ -71,11 +71,11 @@ const Contact = () => {
 							</section>
 						</div>
 						<div className="pb-8 text-center">
-							<div className="h4 pt-16 pb-8 lg:pt-0">Gdzie można nas&nbsp;znaleźć?</div>
+							<p className="h4 pt-16 pb-8 lg:pt-0">Gdzie można nas&nbsp;znaleźć?</p>
 							<div className="grid gap-y-1">
 								<div className="grid gap-y-4 justify-items-center justify-center">
 									<IconItems type="curch" width="2rem" height="2rem" />
-									<strong className="p pl-2">{contactContent.curchName}</strong>
+									<strong className="p pl-2 uppercase">{contactContent.curchName}</strong>
 								</div>
 								<p>{contactContent.curchStreet}</p>
 								<p>{contactContent.curchPlzCity}</p>
@@ -84,7 +84,7 @@ const Contact = () => {
 							</div>
 							<a className="p flex flex-col w-auto items-center justify-center pt-8" href="https://maps.app.goo.gl/MdC4i2TpQr2CWDsi6" target="_blank">
 								<IconItems type="map" width="3rem" height="3rem" />
-								<div className="p lg:h3">Zobacz na mapie</div>
+								<span>Zobacz na mapie</span>
 							</a>
 						</div>
 					</section>
