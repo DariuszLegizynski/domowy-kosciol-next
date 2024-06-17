@@ -52,7 +52,7 @@ const Contact = () => {
 
 	return (
 		<Layout>
-			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeIn">
+			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom">
 				<section className="mt-16 flex flex-col items-center lg:mt-20 lg:mb-8">{/* <IconItems type="family_2" width="16rem" height="8rem" /> */}</section>
 				<article className="grid grid-cols-1 justify-between">
 					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">

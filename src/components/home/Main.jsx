@@ -33,7 +33,7 @@ const Main = () => {
 					isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""
 				}`}
 			/>
-			{isActive && <Header isActive={isActive} />}
+			{isActive && <Header isActive={isActive} onContactClick={e => handleTransition(e, "/contact", "up")} />}
 			<section className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center px-1 w-full">
 				{isActive && (
 					<Link className="underline-effect flex rotate-[270deg]" href="/fotogalleries" onClick={e => handleTransition(e, "/fotogalleries", "right")}>
