@@ -6,7 +6,7 @@ import BaseButton from "@/components/base/BaseButton"
 import { gsap } from "gsap"
 
 // Layout
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 
 const Fotogallery = () => {
 	const [galleries, setGalleries] = useState([])

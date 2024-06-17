@@ -110,3 +110,18 @@
 	}
 }
 
+.page-transition-left {
+	transform: translate(-100vw, 0);
+}
+
+.page-transition-right {
+	transform: translate(100vw, 0);
+}
+
+.page-transition-up {
+	transform: translate(0, -100vh);
+}
+
+.page-transition-down {
+	transform: translate(0, 100vh);
+}

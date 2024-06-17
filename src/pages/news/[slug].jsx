@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import BaseButton from "@/components/base/BaseButton"
 
 // Layout
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 
 // helpers
 import fetchNews from "@/helpers/fetch-news"
