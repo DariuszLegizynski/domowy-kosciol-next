@@ -92,8 +92,8 @@
 }
 
 .fadeIn {
-	-webkit-animation-duration: 6s;
-	animation-duration: 6s;
+	-webkit-animation-duration: 4s;
+	animation-duration: 4s;
 	position: relative;
 	animation: fadeIn 4s;
 	animation-fill-mode: forwards;
@@ -110,3 +110,18 @@
 	}
 }
 
+.page-transition-left {
+	transform: translate(-100vw, 0);
+}
+
+.page-transition-right {
+	transform: translate(100vw, 0);
+}
+
+.page-transition-up {
+	transform: translate(0, -100vh);
+}
+
+.page-transition-down {
+	transform: translate(0, 100vh);
+}

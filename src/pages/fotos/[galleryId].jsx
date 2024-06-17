@@ -2,10 +2,10 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { useRouter } from "next/router"
 
-import BackButton from "@/components/base/BackButton"
+import BaseButton from "@/components/base/BaseButton"
 
 // Layout
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 
 // helpers
 import fetchImages from "@/helpers/fetch-images"
@@ -39,7 +39,7 @@ const Fotos = () => {
 		<Layout>
 			<article className="pt-16 mx-auto">
 				<section className="px-8 columns-1 xs:columns-2 md:columns-3 3xl:columns-4">{renderFotos}</section>
-				<BackButton />
+				<BaseButton type="back" />
 			</article>
 		</Layout>
 	)

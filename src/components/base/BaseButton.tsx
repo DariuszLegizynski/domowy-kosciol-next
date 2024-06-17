@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useRouter } from "next/router"
 
 interface BaseButtonProps {
@@ -10,8 +9,6 @@ interface BaseButtonProps {
 
 const BaseButton: React.FC<BaseButtonProps> = ({ type, text, step = 0, onClick }) => {
 	const router = useRouter()
-
-	// const [currentStep, setCurrentStep] = useState(step)
 
 	const handleClick = (newStep: number) => {
 		if (onClick) {
@@ -26,9 +23,16 @@ const BaseButton: React.FC<BaseButtonProps> = ({ type, text, step = 0, onClick }
 					<div className="h3 before:content-['←']">Powrót</div>
 				</button>
 			)}
-			{type === "link" && (
-				<button className="text-white" onClick={() => handleClick(step)}>
+			{type === "step" && (
+				<button className="underline-effect w-fit relative text-white" onClick={() => handleClick(step)}>
 					<p>{text}</p>
+					<span className="absolute bottom-0" />
+				</button>
+			)}
+			{!type && (
+				<button className="underline-effect transition-colors duration-200 ease-in-out transform relative">
+					<h4>{text}</h4>
+					<span />
 				</button>
 			)}
 		</>

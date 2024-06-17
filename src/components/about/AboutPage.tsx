@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const AboutPage = () => {
 	return (
-		<article className="mt-16 px-4 pb-4 grid gap-y-2">
+		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2">
 			<section>
 				<Image className="pb-8" src="/images/about/picture-1.jpg" alt="Happy family" height={400} width={600} />
 				<div className="grid gap-y-2">

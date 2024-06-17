@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 // components
 import Hero from "@/components/home/Hero"
@@ -8,23 +9,37 @@ import IconItems from "@/components/IconItems"
 
 const Main = () => {
 	const [isActive, setIsActive] = useState(false)
+	const [transitioning, setTransitioning] = useState("")
+	const router = useRouter()
 
 	const handleActive = () => {
 		setIsActive(current => !current)
 	}
 
+	const handleTransition = (e, path, direction) => {
+		e.preventDefault()
+		setTransitioning(direction)
+		setTimeout(() => {
+			router.push(path)
+		}, 600) // duration of the transition
+	}
+
 	return (
-		<article className="relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden">
-			<div
+		<article
+			className={`relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden transition-transform duration-600 ease-in-out page-transition-${transitioning}`}
+		>
+			<section
 				className={`absolute top-0 left-0 h-0 w-0 transition-height duration-500 ease-in-out transition-width delay-500 ${
 					isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""
 				}`}
 			/>
 			{isActive && <Header isActive={isActive} />}
-			<div className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center">
+			<section className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center px-1 w-full">
 				{isActive && (
-					<Link className="rotate-[270deg] translate-y-1" href="/fotogalleries">
-						<h3 className="before:content-['Zd'] before:text-black after:content-['jęcia'] after:text-white fadeInFromTop" />
+					<Link className="underline-effect flex rotate-[270deg]" href="/fotogalleries" onClick={e => handleTransition(e, "/fotogalleries", "right")}>
+						<h4 className="text-primary fadeInFromTop">Zd</h4>
+						<h4 className="text-white fadeInFromTop">jęcia</h4>
+						<span />
 					</Link>
 				)}
 				<section className={isActive ? "" : "invisible"}>
@@ -44,20 +59,24 @@ const Main = () => {
 					<span className={`pt-4 ${isActive ? "invisible" : ""}`}>kliknij</span>
 				</section>
 				{isActive && (
-					<Link className="rotate-90 translate-y-2 fadeInFromRight" href="/news">
-						<h3 className="before:content-['Aktual'] before:text-white after:content-['ności'] after:text-black" />
+					<Link className="underline-effect flex rotate-90 translate-y-1.5 fadeInFromRight" href="/news" onClick={e => handleTransition(e, "/news", "left")}>
+						<h4 className="text-white fadeInFromTop">Aktual</h4>
+						<h4 className="text-primary fadeInFromTop">ności</h4>
+						<span />
 					</Link>
 				)}
-			</div>
+			</section>
 			<footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
 				{isActive && (
-					<Link href="/about" className="fadeInFromBottom">
-						<h3>O Nas</h3>
+					<Link href="/about" className="underline-effect fadeInFromBottom" onClick={e => handleTransition(e, "/about", "up")}>
+						<h4 className="text-primary">O Nas</h4>
+						<span />
 					</Link>
 				)}
 				{isActive && (
-					<Link href="/rules" className="justify-self-end fadeInFromBottom">
-						<h3>Nasze zasady</h3>
+					<Link href="/rules" className="underline-effect justify-self-end fadeInFromBottom">
+						<h4 className="text-primary">Nasze zasady</h4>
+						<span />
 					</Link>
 				)}
 			</footer>
@@ -66,4 +85,3 @@ const Main = () => {
 }
 
 export default Main
-

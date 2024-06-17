@@ -1,30 +1,28 @@
-Merriweather Sans Variable Font
-===============================
+EB Garamond Variable Font
+=========================
 
-This download contains Merriweather Sans as both variable fonts and static fonts.
+This download contains EB Garamond as both variable fonts and static fonts.
 
-Merriweather Sans is a variable font with this axis:
+EB Garamond is a variable font with this axis:
   wght
 
 This means all the styles are contained in these files:
-  Merriweather_Sans/MerriweatherSans-VariableFont_wght.ttf
-  Merriweather_Sans/MerriweatherSans-Italic-VariableFont_wght.ttf
+  EB_Garamond/EBGaramond-VariableFont_wght.ttf
+  EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Merriweather Sans:
-  Merriweather_Sans/static/MerriweatherSans-Light.ttf
-  Merriweather_Sans/static/MerriweatherSans-Regular.ttf
-  Merriweather_Sans/static/MerriweatherSans-Medium.ttf
-  Merriweather_Sans/static/MerriweatherSans-SemiBold.ttf
-  Merriweather_Sans/static/MerriweatherSans-Bold.ttf
-  Merriweather_Sans/static/MerriweatherSans-ExtraBold.ttf
-  Merriweather_Sans/static/MerriweatherSans-LightItalic.ttf
-  Merriweather_Sans/static/MerriweatherSans-Italic.ttf
-  Merriweather_Sans/static/MerriweatherSans-MediumItalic.ttf
-  Merriweather_Sans/static/MerriweatherSans-SemiBoldItalic.ttf
-  Merriweather_Sans/static/MerriweatherSans-BoldItalic.ttf
-  Merriweather_Sans/static/MerriweatherSans-ExtraBoldItalic.ttf
+in those cases you can use the static font files for EB Garamond:
+  EB_Garamond/static/EBGaramond-Regular.ttf
+  EB_Garamond/static/EBGaramond-Medium.ttf
+  EB_Garamond/static/EBGaramond-SemiBold.ttf
+  EB_Garamond/static/EBGaramond-Bold.ttf
+  EB_Garamond/static/EBGaramond-ExtraBold.ttf
+  EB_Garamond/static/EBGaramond-Italic.ttf
+  EB_Garamond/static/EBGaramond-MediumItalic.ttf
+  EB_Garamond/static/EBGaramond-SemiBoldItalic.ttf
+  EB_Garamond/static/EBGaramond-BoldItalic.ttf
+  EB_Garamond/static/EBGaramond-ExtraBoldItalic.ttf
 
 Get started
 -----------
