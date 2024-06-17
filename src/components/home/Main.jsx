@@ -24,8 +24,6 @@ const Main = () => {
 		}, 600) // duration of the transition
 	}
 
-	console.log({ transitioning })
-
 	return (
 		<article
 			className={`relative grid grid-rows-[1fr_auto] w-full h-svh p-[0.4rem] overflow-hidden transition-transform duration-600 ease-in-out page-transition-${transitioning}`}

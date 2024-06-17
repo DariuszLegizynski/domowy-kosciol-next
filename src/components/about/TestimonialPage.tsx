@@ -1,6 +1,6 @@
 const TestimonialPage = () => {
 	return (
-		<article className="grid gap-y-8 px-4 mt-16">
+		<article className="grid gap-y-8 px-4 mt-16 fadeInFromBottom">
 			<section>
 				<div className="h2 pb-2">Świadectwo 1</div>
 				<p>

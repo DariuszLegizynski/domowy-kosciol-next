@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const IconPage = () => {
 	return (
-		<article className="px-4 mt-16">
+		<article className="px-4 mt-16 fadeInFromBottom">
 			<Image className="pb-8" src="/logo/familie.jpg" alt="Happy family" height={400} width={600} />
 			<section className="grid gap-y-4">
 				<p>
