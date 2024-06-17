@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react"
 import { gsap } from "gsap"
 
 // Layout
-import Layout from "@/components/layout"
+import Layout from "@/components/Layout"
 
 // Components
 import NewsItem from "@/components/news/NewsItem"
