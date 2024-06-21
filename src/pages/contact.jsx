@@ -9,6 +9,7 @@ import Layout from "@/components/Layout"
 
 const Contact = () => {
 	const [contactContent, setContactContent] = useState({})
+	const [emailSent, setEmailSent] = useState({ loading: false, success: false, error: false })
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -50,9 +51,36 @@ const Contact = () => {
 		})
 	})
 
+	const handleSubmit = async event => {
+		event.preventDefault()
+
+		const formData = {
+			name: event.target.name.value,
+			surname: event.target.surname.value,
+			email: event.target.email.value,
+			phone: event.target.phone.value,
+			message: event.target.message.value,
+		}
+
+		const response = await fetch("/api/send-email", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(formData),
+		})
+
+		const data = await response.json()
+		if (data.success) {
+			setEmailSent({ loading: false, success: true, error: false })
+		} else {
+			setEmailSent({ loading: false, success: false, error: true })
+		}
+	}
+
 	return (
 		<Layout>
-			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeIn">
+			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom">
 				<section className="mt-16 flex flex-col items-center lg:mt-20 lg:mb-8">{/* <IconItems type="family_2" width="16rem" height="8rem" /> */}</section>
 				<article className="grid grid-cols-1 justify-between">
 					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
@@ -89,28 +117,45 @@ const Contact = () => {
 						</div>
 					</section>
 					<section className="grid grid-cols-1 pt-8 pb-24 justify-items-center lg:order-2 lg:pt-16">
-						<p className="h4 pb-4">Napisz do nas:</p>
-						<form className="p-2">
-							<div ref={addToRefs} className="mb-6 grid grid-rows-[auto_auto]">
-								<BaseText text="Imię" inputFieldType="text" isRequired />
-							</div>
-							<div ref={addToRefs} className="mb-6">
-								<BaseText text="Nazwisko" inputFieldType="text" />
-							</div>
-							<div ref={addToRefs} className="mb-6">
-								<BaseText text="E-mail" inputFieldType="email" isRequired />
-							</div>
-							<div ref={addToRefs} className="mb-6">
-								<BaseText text="Telefon" inputFieldType="number" />
-							</div>
-							<div ref={addToRefs} className="mb-2 max-w-full">
-								<label className="span">Wiadomość</label>
-								<textarea placeholder="Napisz nam" className="p-1 w-full min-h-36 border border-primary" required />
-							</div>
-							<button ref={addToRefs} className="flex flex-col items-center mx-auto bg-primary text-white px-12 py-3 mt-8 round" type="submit">
-								<strong className="span">Wyślij</strong>
-							</button>
-						</form>
+						{!emailSent.loading && !emailSent.success && !emailSent.error && (
+							<>
+								<p className="h4 pb-4">Napisz do nas:</p>
+								<form className="p-2" onSubmit={handleSubmit}>
+									<div ref={addToRefs} className="mb-6 grid grid-rows-[auto_auto]">
+										<BaseText name="name" text="Imię" inputFieldType="text" isRequired />
+									</div>
+									<div ref={addToRefs} className="mb-6">
+										<BaseText name="surname" text="Nazwisko" inputFieldType="text" />
+									</div>
+									<div ref={addToRefs} className="mb-6">
+										<BaseText name="email" text="E-mail" inputFieldType="email" isRequired />
+									</div>
+									<div ref={addToRefs} className="mb-6">
+										<BaseText name="phone" text="Telefon" inputFieldType="number" />
+									</div>
+									<div ref={addToRefs} className="mb-2 max-w-full">
+										<label className="span">Wiadomość</label>
+										<textarea name="message" placeholder="Napisz nam" className="p-1 w-full min-h-36 border border-primary" required />
+									</div>
+									<button ref={addToRefs} className="flex flex-col items-center mx-auto bg-primary text-white px-12 py-3 mt-8 round" type="submit">
+										<strong className="span">Wyślij</strong>
+									</button>
+								</form>
+							</>
+						)}
+						{emailSent.loading && <div className="h3">Wysyłam...</div>}
+						{emailSent.success && (
+							<>
+								<div className="h3 py-4 text-primary">Wiadomość została wysłana.</div>
+								<div className="h3 pb-4 text-primary">Dziękujemy.</div>
+							</>
+						)}
+						{emailSent.error && (
+							<>
+								<div className="h3 py-4 text-primary">Wystąpił błąd.</div>
+								<div className="h3 pb-4 text-primary">Proszę spróbować później.</div>
+							</>
+						)}
 						<BaseButton type="back" />
 					</section>
 				</article>
