@@ -1,12 +1,13 @@
 import { useState } from "react"
 
 interface BaseTextProps {
+	name: string
 	text: string
 	inputFieldType: string
 	isRequired?: boolean
 }
 
-const BaseText: React.FC<BaseTextProps> = ({ text, inputFieldType = "text", isRequired = false }) => {
+const BaseText: React.FC<BaseTextProps> = ({ name, text, inputFieldType = "text", isRequired = false }) => {
 	const [isActive, setIsActive] = useState(false)
 
 	const handleFocus = () => {
@@ -32,6 +33,7 @@ const BaseText: React.FC<BaseTextProps> = ({ text, inputFieldType = "text", isRe
 				onFocus={handleFocus}
 				onBlur={handleBlur}
 				className={`pl-1 w-full border-b border-priamry transition-all duration-300 ease-in-out bg-transparent`}
+				name={name}
 				type={inputFieldType}
 				required={isRequired}
 			/>
