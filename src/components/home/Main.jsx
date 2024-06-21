@@ -33,10 +33,10 @@ const Main = () => {
 					isActive ? "absolute top-0 left-0 bg-primary h-1/2 w-full z-[-1]" : ""
 				}`}
 			/>
-			{isActive && <Header isActive={isActive} />}
+			{isActive && <Header isActive={isActive} onContactClick={e => handleTransition(e, "/contact", "up")} />}
 			<section className="grid grid-cols-[2rem_1fr_2rem] items-center justify-items-center px-1 w-full">
 				{isActive && (
-					<Link className="underline-effect flex rotate-[270deg]" href="/fotogalleries" onClick={e => handleTransition(e, "/fotogalleries", "right")}>
+					<Link className="underline-effect flex rotate-[270deg] w-fit" href="/fotogalleries" onClick={e => handleTransition(e, "/fotogalleries", "right")}>
 						<h4 className="text-primary fadeInFromTop">Zd</h4>
 						<h4 className="text-white fadeInFromTop">jęcia</h4>
 						<span />
@@ -59,7 +59,11 @@ const Main = () => {
 					<span className={`pt-4 ${isActive ? "invisible" : ""}`}>kliknij</span>
 				</section>
 				{isActive && (
-					<Link className="underline-effect flex rotate-90 translate-y-1.5 fadeInFromRight" href="/news" onClick={e => handleTransition(e, "/news", "left")}>
+					<Link
+						className="underline-effect flex rotate-90 translate-y-1.5 fadeInFromRight w-fit"
+						href="/news"
+						onClick={e => handleTransition(e, "/news", "left")}
+					>
 						<h4 className="text-white fadeInFromTop">Aktual</h4>
 						<h4 className="text-primary fadeInFromTop">ności</h4>
 						<span />
@@ -68,13 +72,13 @@ const Main = () => {
 			</section>
 			<footer className="grid grid-cols-[auto_auto] gap-x-8 items-center justify-self-center sm:w-[60vw]">
 				{isActive && (
-					<Link href="/about" className="underline-effect fadeInFromBottom" onClick={e => handleTransition(e, "/about", "up")}>
+					<Link href="/about" className="underline-effect fadeInFromBottom w-fit" onClick={e => handleTransition(e, "/about", "up")}>
 						<h4 className="text-primary">O Nas</h4>
 						<span />
 					</Link>
 				)}
 				{isActive && (
-					<Link href="/rules" className="underline-effect justify-self-end fadeInFromBottom">
+					<Link href="/rules" className="underline-effect justify-self-end fadeInFromBottom w-fit">
 						<h4 className="text-primary">Nasze zasady</h4>
 						<span />
 					</Link>
