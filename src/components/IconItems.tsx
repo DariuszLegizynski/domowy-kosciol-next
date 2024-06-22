@@ -1,7 +1,15 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, FC } from "react"
 import { gsap } from "gsap"
 
-const IconItems = ({ type, fillColor, width, height, animationType = "" }) => {
+interface IconItemsProps {
+	type: string
+	fillColor?: string
+	width: string
+	height: string
+	animationType?: string
+}
+
+const IconItems: FC<IconItemsProps> = ({ type, fillColor, width, height, animationType = "" }) => {
 	const handRef = useRef(null)
 
 	useEffect(() => {
