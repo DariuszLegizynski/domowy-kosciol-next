@@ -1,26 +1,51 @@
 import { useRef, useState, useEffect } from "react"
+import { gsap } from "gsap"
+import { Formik, Form, Field, ErrorMessage } from "formik"
+import * as Yup from "yup"
+
 import IconItems from "@/components/IconItems"
 import BaseButton from "@/components/base/BaseButton"
 import BaseText from "@/components/base/BaseText"
-import { gsap } from "gsap"
 
 // Layout
 import Layout from "@/components/Layout"
 
-const Contact = () => {
-	interface ContactContent {
-		name: string
-		phoneNumber?: string
-		email?: string
-		curchName?: string
-		curchStreet?: string
-		curchPlzCity?: string
-		curchPriest?: string
-		curchPhone?: string
-	}
+interface ContactContent {
+	name: string
+	phoneNumber?: string
+	email?: string
+	curchName?: string
+	curchStreet?: string
+	curchPlzCity?: string
+	curchPriest?: string
+	curchPhone?: string
+}
 
+interface FormValues {
+	name: string
+	surname?: string
+	phoneNumber?: string
+	email?: string
+	message?: string
+}
+
+const Contact = () => {
 	const [contactContent, setContactContent] = useState<ContactContent | null>(null)
 	const [emailSent, setEmailSent] = useState({ loading: false, success: false, error: false })
+
+	const validationSchema = Yup.object().shape({
+		name: Yup.string().required("Imię jest wymagane"),
+		surname: Yup.string(),
+		email: Yup.string().email("Nieprawidłowy email").required("Email jest wymagany"),
+		message: Yup.string().min(5, "Wymagane przynajmniej 5 znaków"),
+	})
+
+	const initialValues: FormValues = {
+		name: "",
+		surname: "",
+		email: "",
+		message: "",
+	}
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -62,31 +87,23 @@ const Contact = () => {
 		})
 	})
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault()
-
-		const formData = {
-			name: (event.currentTarget.elements.namedItem("name") as HTMLInputElement).value,
-			surname: (event.currentTarget.elements.namedItem("surname") as HTMLInputElement).value,
-			email: (event.currentTarget.elements.namedItem("email") as HTMLInputElement).value,
-			phone: (event.currentTarget.elements.namedItem("phone") as HTMLInputElement).value,
-			message: (event.currentTarget.elements.namedItem("message") as HTMLInputElement).value,
-		}
-
+	const handleSubmit = async (values: FormValues, { setSubmitting, resetForm }: any) => {
 		const response = await fetch("/api/send-email", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(formData),
+			body: JSON.stringify(values),
 		})
 
 		const data = await response.json()
 		if (data.success) {
 			setEmailSent({ loading: false, success: true, error: false })
+			resetForm()
 		} else {
 			setEmailSent({ loading: false, success: false, error: true })
 		}
+		setSubmitting(false)
 	}
 
 	return (
@@ -131,27 +148,41 @@ const Contact = () => {
 						{!emailSent.loading && !emailSent.success && !emailSent.error && (
 							<>
 								<p className="h4 pb-4">Napisz do nas:</p>
-								<form className="p-2" onSubmit={handleSubmit}>
-									<div ref={addToRefs} className="mb-6 grid grid-rows-[auto_auto]">
-										<BaseText name="name" text="Imię" inputFieldType="text" isRequired />
-									</div>
-									<div ref={addToRefs} className="mb-6">
-										<BaseText name="surname" text="Nazwisko" inputFieldType="text" />
-									</div>
-									<div ref={addToRefs} className="mb-6">
-										<BaseText name="email" text="E-mail" inputFieldType="email" isRequired />
-									</div>
-									<div ref={addToRefs} className="mb-6">
-										<BaseText name="phone" text="Telefon" inputFieldType="number" />
-									</div>
-									<div ref={addToRefs} className="mb-2 max-w-full">
-										<label className="span">Wiadomość</label>
-										<textarea name="message" placeholder="Napisz nam" className="p-1 w-full min-h-36 border border-primary" required />
-									</div>
-									<button ref={addToRefs} className="flex flex-col items-center mx-auto bg-primary text-white px-12 py-3 mt-8 round" type="submit">
-										<strong className="span">Wyślij</strong>
-									</button>
-								</form>
+								<Formik<FormValues> initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+									{({ isSubmitting }) => (
+										<Form className="p-2">
+											<div ref={addToRefs} className="mb-6 grid grid-rows-[auto_auto]">
+												<Field name="name" type="text" as={BaseText} text="Imię" isRequired />
+												<ErrorMessage name="name" component="div" className="text-red-500" />
+											</div>
+											<div ref={addToRefs} className="mb-6">
+												<Field name="surname" type="text" as={BaseText} text="Nazwisko" />
+												<ErrorMessage name="surname" component="div" className="text-red-500" />
+											</div>
+											<div ref={addToRefs} className="mb-6">
+												<Field name="email" type="email" as={BaseText} text="E-mail" isRequired />
+												<ErrorMessage name="email" component="div" className="text-red-500" />
+											</div>
+											<div ref={addToRefs} className="mb-6">
+												<Field name="phone" type="text" as={BaseText} text="Telefon" />
+												<ErrorMessage name="phone" component="div" className="text-red-500" />
+											</div>
+											<div ref={addToRefs} className="mb-2 max-w-full">
+												<label className="span">Wiadomość</label>
+												<Field name="message" as="textarea" placeholder="Napisz nam" className="p-1 w-full min-h-36 border border-primary" required />
+												<ErrorMessage name="message" component="div" className="text-red-500" />
+											</div>
+											<button
+												ref={addToRefs}
+												className="flex flex-col items-center mx-auto bg-primary text-white px-12 py-3 mt-8 round"
+												type="submit"
+												disabled={isSubmitting}
+											>
+												<strong className="span">Wyślij</strong>
+											</button>
+										</Form>
+									)}
+								</Formik>
 							</>
 						)}
 						{emailSent.loading && <div className="h3">Wysyłam...</div>}
