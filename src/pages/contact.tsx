@@ -2,7 +2,9 @@ import { useRef, useState, useEffect } from "react"
 import { gsap } from "gsap"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
+// Components
 import IconItems from "@/components/IconItems"
 import BaseButton from "@/components/base/BaseButton"
 import BaseText from "@/components/base/BaseText"
@@ -24,12 +26,13 @@ interface ContactContent {
 interface FormValues {
 	name: string
 	surname?: string
-	phoneNumber?: string
+	phone?: string
 	email?: string
 	message?: string
 }
 
 const Contact = () => {
+	const { executeRecaptcha } = useGoogleReCaptcha()
 	const [contactContent, setContactContent] = useState<ContactContent | null>(null)
 	const [emailSent, setEmailSent] = useState({ loading: false, success: false, error: false })
 
@@ -37,6 +40,7 @@ const Contact = () => {
 		name: Yup.string().required("Imię jest wymagane"),
 		surname: Yup.string(),
 		email: Yup.string().email("Nieprawidłowy email").required("Email jest wymagany"),
+		phone: Yup.string(),
 		message: Yup.string().min(5, "Wymagane przynajmniej 5 znaków"),
 	})
 
@@ -44,6 +48,7 @@ const Contact = () => {
 		name: "",
 		surname: "",
 		email: "",
+		phone: "",
 		message: "",
 	}
 
@@ -88,15 +93,26 @@ const Contact = () => {
 	})
 
 	const handleSubmit = async (values: FormValues, { setSubmitting, resetForm }: any) => {
+		setEmailSent({ loading: true, success: false, error: false })
+
+		if (!executeRecaptcha) {
+			setEmailSent({ loading: false, success: false, error: true })
+
+			return
+		}
+
+		const token = await executeRecaptcha("contact")
+
 		const response = await fetch("/api/send-email", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(values),
+			body: JSON.stringify({ ...values, token }),
 		})
 
 		const data = await response.json()
+
 		if (data.success) {
 			setEmailSent({ loading: false, success: true, error: false })
 			resetForm()
@@ -108,26 +124,26 @@ const Contact = () => {
 
 	return (
 		<Layout>
-			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom">
-				<section className="mt-16 flex flex-col items-center lg:mt-20 lg:mb-8">{/* <IconItems type="family_2" width="16rem" height="8rem" /> */}</section>
+			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom pt-24 md:pt-36 ">
 				<article className="grid grid-cols-1 justify-between">
-					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
+					<section className="grid grid-cols-1 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
 						<div className="text-center">
 							<p className="pb-6">Skontaktuj się z&nbsp;nami:</p>
-							<div className="h4 uppercase">{contactContent?.name}</div>
-							<section className="flex flex-col items-center">
-								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4">
+							<div className="h4 uppercase py-4">{contactContent?.name}</div>
+							<section className="flex flex-col items-center xl:gap-y-4">
+								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4 xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="phone" width="2rem" height="1.8rem" />
-									<p className="pl-2">{contactContent?.phoneNumber}</p>
+									<p className="pl-2 w-fit">{contactContent?.phoneNumber}</p>
 								</div>
-								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start">
+								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="email" width="2rem" height="2rem" />
 									<p className="pl-2">{contactContent?.email}</p>
 								</div>
 							</section>
 						</div>
 						<div className="pb-8 text-center">
-							<p className="h4 pt-16 pb-8 lg:pt-0">Gdzie można nas&nbsp;znaleźć?</p>
+							<div className="h4 pt-16 pb-8 lg:pt-0 lg:hidden">Gdzie można nas&nbsp;znaleźć?</div>
+							<p className="hidden pb-8 lg:block">Gdzie można nas&nbsp;znaleźć?</p>
 							<div className="grid gap-y-1">
 								<div className="grid gap-y-4 justify-items-center justify-center">
 									<IconItems type="curch" width="2rem" height="2rem" />
@@ -144,7 +160,7 @@ const Contact = () => {
 							</a>
 						</div>
 					</section>
-					<section className="grid grid-cols-1 pt-8 pb-24 justify-items-center lg:order-2 lg:pt-16">
+					<section className="grid grid-cols-1 pt-8 justify-items-center lg:order-2 lg:pt-16">
 						{!emailSent.loading && !emailSent.success && !emailSent.error && (
 							<>
 								<p className="h4 pb-4">Napisz do nas:</p>
@@ -152,20 +168,16 @@ const Contact = () => {
 									{({ isSubmitting }) => (
 										<Form className="p-2">
 											<div ref={addToRefs} className="mb-6 grid grid-rows-[auto_auto]">
-												<Field name="name" type="text" as={BaseText} text="Imię" isRequired />
-												<ErrorMessage name="name" component="div" className="text-red-500" />
+												<Field name="name" type="text" component={BaseText} text="Imię" isRequired />
 											</div>
 											<div ref={addToRefs} className="mb-6">
-												<Field name="surname" type="text" as={BaseText} text="Nazwisko" />
-												<ErrorMessage name="surname" component="div" className="text-red-500" />
+												<Field name="surname" type="text" component={BaseText} text="Nazwisko" />
 											</div>
 											<div ref={addToRefs} className="mb-6">
-												<Field name="email" type="email" as={BaseText} text="E-mail" isRequired />
-												<ErrorMessage name="email" component="div" className="text-red-500" />
+												<Field name="email" type="email" component={BaseText} text="E-mail" isRequired />
 											</div>
 											<div ref={addToRefs} className="mb-6">
-												<Field name="phone" type="text" as={BaseText} text="Telefon" />
-												<ErrorMessage name="phone" component="div" className="text-red-500" />
+												<Field name="phone" type="text" component={BaseText} text="Telefon" />
 											</div>
 											<div ref={addToRefs} className="mb-2 max-w-full">
 												<label className="span">Wiadomość</label>
@@ -198,8 +210,10 @@ const Contact = () => {
 								<div className="h3 pb-4 text-primary">Proszę spróbować później.</div>
 							</>
 						)}
-						<BaseButton type="back" />
 					</section>
+					<div ref={addToRefs} className="py-6 mx-auto">
+						<BaseButton type="back" />
+					</div>
 				</article>
 			</main>
 		</Layout>
