@@ -4,6 +4,14 @@ import { useRouter } from "next/router"
 
 import BaseButton from "@/components/base/BaseButton"
 
+interface SingleFoto {
+	attributes: {
+		alternativeText: string
+		url: string
+	}
+	id: number
+}
+
 // Layout
 import Layout from "@/components/Layout"
 
@@ -25,7 +33,7 @@ const Fotos = () => {
 		fetchData()
 	}, [galleryId])
 
-	let renderFotos = images?.map(image => (
+	let renderFotos = images?.map((image: SingleFoto) => (
 		<Image
 			key={image.id}
 			src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${image.attributes.url}`}
