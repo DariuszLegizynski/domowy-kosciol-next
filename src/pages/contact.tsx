@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
+// Components
 import IconItems from "@/components/IconItems"
 import BaseButton from "@/components/base/BaseButton"
 import BaseText from "@/components/base/BaseText"
@@ -123,25 +124,26 @@ const Contact = () => {
 
 	return (
 		<Layout>
-			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom">
+			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom pt-24 md:pt-36 ">
 				<article className="grid grid-cols-1 justify-between">
-					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
+					<section className="grid grid-cols-1 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
 						<div className="text-center">
 							<p className="pb-6">Skontaktuj się z&nbsp;nami:</p>
-							<div className="h4 uppercase">{contactContent?.name}</div>
-							<section className="flex flex-col items-center">
-								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4">
+							<div className="h4 uppercase py-4">{contactContent?.name}</div>
+							<section className="flex flex-col items-center xl:gap-y-4">
+								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4 xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="phone" width="2rem" height="1.8rem" />
-									<p className="pl-2">{contactContent?.phoneNumber}</p>
+									<p className="pl-2 w-fit">{contactContent?.phoneNumber}</p>
 								</div>
-								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start">
+								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="email" width="2rem" height="2rem" />
 									<p className="pl-2">{contactContent?.email}</p>
 								</div>
 							</section>
 						</div>
 						<div className="pb-8 text-center">
-							<p className="h4 pt-16 pb-8 lg:pt-0">Gdzie można nas&nbsp;znaleźć?</p>
+							<div className="h4 pt-16 pb-8 lg:pt-0 lg:hidden">Gdzie można nas&nbsp;znaleźć?</div>
+							<p className="hidden pb-8 lg:block">Gdzie można nas&nbsp;znaleźć?</p>
 							<div className="grid gap-y-1">
 								<div className="grid gap-y-4 justify-items-center justify-center">
 									<IconItems type="curch" width="2rem" height="2rem" />
@@ -158,7 +160,7 @@ const Contact = () => {
 							</a>
 						</div>
 					</section>
-					<section className="grid grid-cols-1 pt-8 pb-24 justify-items-center lg:order-2 lg:pt-16">
+					<section className="grid grid-cols-1 pt-8 justify-items-center lg:order-2 lg:pt-16">
 						{!emailSent.loading && !emailSent.success && !emailSent.error && (
 							<>
 								<p className="h4 pb-4">Napisz do nas:</p>
@@ -208,8 +210,10 @@ const Contact = () => {
 								<div className="h3 pb-4 text-primary">Proszę spróbować później.</div>
 							</>
 						)}
-						<BaseButton type="back" />
 					</section>
+					<div ref={addToRefs} className="py-6 mx-auto">
+						<BaseButton type="back" />
+					</div>
 				</article>
 			</main>
 		</Layout>
