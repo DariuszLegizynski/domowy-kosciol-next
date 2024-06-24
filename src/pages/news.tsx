@@ -12,14 +12,24 @@ import BaseButton from "@/components/base/BaseButton"
 // helpers
 import fetchNews from "@/helpers/fetch-news"
 
+interface NewsItem {
+	attributes: {
+		title: string
+		content: string
+		createdAt: string
+		updatedAt: string
+	}
+	id: number
+}
+
 const News = () => {
 	const [news, setNews] = useState([])
-	const [count, setCount] = useState(0)
+	const [count, setCount] = useState<number>(0)
 
-	const revealRefs = useRef([])
+	const revealRefs = useRef<HTMLElement[]>([])
 	revealRefs.current = []
 
-	const addToRefs = el => {
+	const addToRefs = (el: HTMLElement | null) => {
 		if (el && !revealRefs.current.includes(el)) {
 			revealRefs.current.push(el)
 		}
@@ -32,8 +42,8 @@ const News = () => {
 		}
 		fetchData()
 
-		let num = (window.innerHeight - 70) / 30
-		setCount(parseInt(num))
+		let num: number = (window.innerHeight - 70) / 30
+		setCount(parseInt(num.toString()))
 	}, [])
 
 	useEffect(() => {
@@ -58,7 +68,7 @@ const News = () => {
 		})
 	})
 
-	let renderedListOfNews = news.map(newsItem => {
+	let renderedListOfNews = news.map((newsItem: NewsItem) => {
 		return <NewsItem addToRefs={addToRefs} key={newsItem.id} newsItem={newsItem.attributes} />
 	})
 
