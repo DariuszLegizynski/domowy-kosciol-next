@@ -23,7 +23,7 @@ export interface CoverImage {
 	caption: null
 	createdAt: string
 	ext: string
-	formats: Format[]
+	formats: Format
 	hash: string
 	height: number
 	mime: string
@@ -47,6 +47,7 @@ export interface FotoGalleryAttributes {
 		}
 	}
 	description: string
+	shortDescription: string
 	publishedAt: string
 	slug: string
 	updatedAt: string
