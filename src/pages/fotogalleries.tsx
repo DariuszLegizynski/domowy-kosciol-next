@@ -1,19 +1,24 @@
 import { useRef, useState, useEffect } from "react"
+import { gsap } from "gsap"
+
+// helpers
 import fetchAlbums from "@/helpers/fetch-albums"
+
+// components
 import FotoGallery from "@/components/fotogallery/FotoGallery"
 import BaseButton from "@/components/base/BaseButton"
-
-import { gsap } from "gsap"
 
 // Layout
 import Layout from "@/components/Layout"
 
+import { FotoGallery as fotoGallery } from "@/types/fotoGallery"
+
 const Fotogallery = () => {
 	const [galleries, setGalleries] = useState([])
 
-	const revealRefs = useRef([])
+	const revealRefs = useRef<HTMLElement[]>([])
 
-	const addToRefs = el => {
+	const addToRefs = (el: HTMLElement | null) => {
 		if (el && !revealRefs.current.includes(el)) {
 			revealRefs.current.push(el)
 		}
@@ -49,14 +54,14 @@ const Fotogallery = () => {
 		})
 	})
 
-	let renderGalleries = galleries?.map(gallery => {
+	let renderGalleries = galleries?.map((gallery: fotoGallery) => {
 		return (
 			<FotoGallery
 				addToRefs={addToRefs}
 				key={`gallery_${gallery.id}`}
 				gallery={gallery.attributes}
 				gallerySlug={gallery.attributes.slug}
-				galleryId={gallery.id}
+				galleryId={gallery.id as number}
 			/>
 		)
 	})
@@ -65,7 +70,7 @@ const Fotogallery = () => {
 		<Layout>
 			<main className="grid grid-cols-1 items-center justify-between">
 				<h1 className="text-center mt-24 mb-12">Zdjęcia</h1>
-				<section className="grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-y-16">{renderGalleries}</section>
+				<section className="grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-y-8">{renderGalleries}</section>
 				<BaseButton type="back" />
 			</main>
 		</Layout>

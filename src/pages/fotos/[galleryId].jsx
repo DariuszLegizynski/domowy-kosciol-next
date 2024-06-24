@@ -39,7 +39,9 @@ const Fotos = () => {
 		<Layout>
 			<article className="pt-16 mx-auto">
 				<section className="px-8 columns-1 xs:columns-2 md:columns-3 3xl:columns-4">{renderFotos}</section>
-				<BaseButton type="back" />
+				<div className="flex flex-col items-center">
+					<BaseButton type="back" />
+				</div>
 			</article>
 		</Layout>
 	)
