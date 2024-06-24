@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react"
 import { gsap } from "gsap"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
 import IconItems from "@/components/IconItems"
 import BaseButton from "@/components/base/BaseButton"
@@ -24,12 +25,13 @@ interface ContactContent {
 interface FormValues {
 	name: string
 	surname?: string
-	phoneNumber?: string
+	phone?: string
 	email?: string
 	message?: string
 }
 
 const Contact = () => {
+	const { executeRecaptcha } = useGoogleReCaptcha()
 	const [contactContent, setContactContent] = useState<ContactContent | null>(null)
 	const [emailSent, setEmailSent] = useState({ loading: false, success: false, error: false })
 
@@ -37,6 +39,7 @@ const Contact = () => {
 		name: Yup.string().required("Imię jest wymagane"),
 		surname: Yup.string(),
 		email: Yup.string().email("Nieprawidłowy email").required("Email jest wymagany"),
+		phone: Yup.string(),
 		message: Yup.string().min(5, "Wymagane przynajmniej 5 znaków"),
 	})
 
@@ -44,6 +47,7 @@ const Contact = () => {
 		name: "",
 		surname: "",
 		email: "",
+		phone: "",
 		message: "",
 	}
 
@@ -88,15 +92,26 @@ const Contact = () => {
 	})
 
 	const handleSubmit = async (values: FormValues, { setSubmitting, resetForm }: any) => {
+		setEmailSent({ loading: true, success: false, error: false })
+
+		if (!executeRecaptcha) {
+			setEmailSent({ loading: false, success: false, error: true })
+
+			return
+		}
+
+		const token = await executeRecaptcha("contact")
+
 		const response = await fetch("/api/send-email", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(values),
+			body: JSON.stringify({ ...values, token }),
 		})
 
 		const data = await response.json()
+
 		if (data.success) {
 			setEmailSent({ loading: false, success: true, error: false })
 			resetForm()
@@ -109,7 +124,6 @@ const Contact = () => {
 	return (
 		<Layout>
 			<main className="min-h-screen grid grid-rows-[1fr_auto] fadeInFromBottom">
-				<section className="mt-16 flex flex-col items-center lg:mt-20 lg:mb-8">{/* <IconItems type="family_2" width="16rem" height="8rem" /> */}</section>
 				<article className="grid grid-cols-1 justify-between">
 					<section className="grid grid-cols-1 pt-8 px-8 justify-items-center lg:order-1 lg:grid-cols-2 lg:gap-x-24 lg:mx-auto lg:pb-8">
 						<div className="text-center">
@@ -152,20 +166,16 @@ const Contact = () => {
 									{({ isSubmitting }) => (
 										<Form className="p-2">
 											<div ref={addToRefs} className="mb-6 grid grid-rows-[auto_auto]">
-												<Field name="name" type="text" as={BaseText} text="Imię" isRequired />
-												<ErrorMessage name="name" component="div" className="text-red-500" />
+												<Field name="name" type="text" component={BaseText} text="Imię" isRequired />
 											</div>
 											<div ref={addToRefs} className="mb-6">
-												<Field name="surname" type="text" as={BaseText} text="Nazwisko" />
-												<ErrorMessage name="surname" component="div" className="text-red-500" />
+												<Field name="surname" type="text" component={BaseText} text="Nazwisko" />
 											</div>
 											<div ref={addToRefs} className="mb-6">
-												<Field name="email" type="email" as={BaseText} text="E-mail" isRequired />
-												<ErrorMessage name="email" component="div" className="text-red-500" />
+												<Field name="email" type="email" component={BaseText} text="E-mail" isRequired />
 											</div>
 											<div ref={addToRefs} className="mb-6">
-												<Field name="phone" type="text" as={BaseText} text="Telefon" />
-												<ErrorMessage name="phone" component="div" className="text-red-500" />
+												<Field name="phone" type="text" component={BaseText} text="Telefon" />
 											</div>
 											<div ref={addToRefs} className="mb-2 max-w-full">
 												<label className="span">Wiadomość</label>
