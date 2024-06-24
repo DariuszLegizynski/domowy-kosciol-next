@@ -1,7 +1,16 @@
 import Link from "next/link"
 import Image from "next/image"
 
-const FotoGallery = ({ addToRefs, gallery, gallerySlug }) => {
+import { FotoGalleryAttributes } from "@/types/fotoGallery"
+
+interface Props {
+	addToRefs: (el: HTMLElement | null) => void
+	gallery: FotoGalleryAttributes
+	gallerySlug: string
+	galleryId: number
+}
+
+const FotoGallery: React.FC<Props> = ({ addToRefs, gallery, gallerySlug }) => {
 	const date = gallery.createdAt.split("T")[0]
 
 	return (
