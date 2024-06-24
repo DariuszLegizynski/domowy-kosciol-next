@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 
 interface BaseButtonProps {
-	type: string
+	type?: string
 	text?: string
 	step?: number
 	onClick?: (step: number) => void
