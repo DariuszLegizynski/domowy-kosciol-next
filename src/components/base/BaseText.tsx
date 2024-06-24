@@ -25,26 +25,40 @@ const BaseText: React.FC<BaseTextProps> = ({ field, form: { touched, errors }, t
 		field.onBlur(e)
 	}
 
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		field.onChange?.(e)
+		setIsActive(!!e.target.value)
+	}
+
 	return (
-		<div className="relative max-w-full">
-			<label className={`absolute bottom-0 left-1 transition-all duration-500 ease-in-out -translate-y-full text-sm ${isActive ? "opacity-100" : "opacity-0"}`}>
-				{text}
-				{isRequired ? "*" : ""}
-			</label>
-			<span className={`absolute left-1 transition-all duration-500 ease-in-out -z-10 text-primary ${isActive ? "opacity-0" : "opacity-100"}`}>
-				{text}
-				{isRequired ? "*" : ""}
-			</span>
-			<input
-				{...field}
-				onFocus={handleFocus}
-				onBlur={handleBlur}
-				className={`pl-1 w-full border-b border-primary transition-all duration-300 ease-in-out bg-transparent`}
-				type={inputFieldType}
-				required={isRequired}
-			/>
-			{touched[field.name] && errors[field.name] && <div className="text-red-500">{String(errors[field.name])}</div>}
-		</div>
+		<section>
+			<div className="relative max-w-full">
+				<label
+					className={`absolute bottom-0 left-1 transition-all duration-500 ease-in-out -translate-y-full text-sm ${isActive ? "opacity-100" : "opacity-0"} ${
+						isRequired ? "after:content-['*']" : ""
+					}`}
+				>
+					{text}
+				</label>
+				<span
+					className={`absolute left-1 transition-all duration-500 ease-in-out -z-10 text-primary ${isActive ? "opacity-0" : "opacity-100"} ${
+						isRequired ? "after:content-['*']" : ""
+					}`}
+				>
+					{text}
+				</span>
+				<input
+					{...field}
+					onFocus={handleFocus}
+					onBlur={handleBlur}
+					onChange={handleChange}
+					className={`pl-1 w-full border-b border-primary transition-all duration-300 ease-in-out bg-transparent`}
+					type={inputFieldType}
+					required={isRequired}
+				/>
+			</div>
+			{touched[field.name] && errors[field.name] && <div className="pl-1 text-red-500">{String(errors[field.name])}</div>}
+		</section>
 	)
 }
 
