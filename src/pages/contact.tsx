@@ -211,7 +211,7 @@ const Contact = () => {
 							</>
 						)}
 					</section>
-					<div ref={addToRefs} className="py-6 mx-auto">
+					<div ref={addToRefs} className="py-6 mx-auto lg:order-3">
 						<BaseButton type="back" />
 					</div>
 				</article>

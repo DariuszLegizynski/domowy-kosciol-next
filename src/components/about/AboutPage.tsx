@@ -2,9 +2,10 @@ import Image from "next/image"
 
 const AboutPage = () => {
 	return (
-		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2">
+		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2 max-w-[1024px]">
 			<section>
-				<Image className="pb-8" src="/images/about/picture-1.jpg" alt="Happy family" height={400} width={600} />
+				<Image className="pb-8 mx-auto max-w-[640px]" src="/images/about/picture-1.jpg" alt="Happy family" height={400} width={600} />
+
 				<div className="grid gap-y-2">
 					<div className="text-primary text-[2.6rem] leading-[3rem] pb-2">Kochane małżeństwa,</div>
 					<p>macie ochotę na duchową przygodę, która wciągnie Was po uszy?</p>
@@ -14,7 +15,7 @@ const AboutPage = () => {
 			</section>
 
 			<section>
-				<Image className="py-8" src="/images/about/jed-villejo-4SByp8kIoOE-unsplash.jpg" alt="Happy family" height={400} width={600} />
+				<Image className="py-8 mx-auto max-w-[640px]" src="/images/about/jed-villejo-4SByp8kIoOE-unsplash.jpg" alt="Happy family" height={400} width={600} />
 				<div className="grid gap-y-2">
 					<p>
 						Poznajcie nas - Domowy Kościół w Austrii przy Polskiej Misji Katolickiej Księży Zmartwychwstańców w Wiedniu – miejsce, gdzie Wasz dom staje się
@@ -28,7 +29,7 @@ const AboutPage = () => {
 			</section>
 
 			<section>
-				<Image className="py-8" src="/images/about/paz-arando-qZIM5rutBZM-unsplash.jpg" alt="Happy family" height={400} width={600} />
+				<Image className="py-8 mx-auto max-w-[640px]" src="/images/about/paz-arando-qZIM5rutBZM-unsplash.jpg" alt="Happy family" height={400} width={600} />
 				<div className="grid gap-y-2">
 					<p>
 						Dwa razy w roku wskakujemy w rekolekcyjne buty i ruszamy na weekendowe wypady, prowadzone przez kapłana i mega inspirującą parę małżeńską z Polski.
