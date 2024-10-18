@@ -18,8 +18,8 @@ const About = () => {
 		<Layout>
 			<main className="flex min-h-screen flex-col items-center justify-center">
 				<section className="fadeIn about-background-image py-4 w-full mt-12 flex flex-col items-center justify-end ">
-					<div className="xs:px-2 max-w-[1024px]">
-						<h1 className="text-start text-white">O nas,</h1>
+					<div className="px-4 max-w-[1024px]">
+						<h1 className="text-start text-white">O nas</h1>
 						<h1 className="text-center text-white pl-8 pb-2 px-1">czyli kim właściwie jesteśmy?</h1>
 					</div>
 				</section>

@@ -5,14 +5,14 @@ interface BaseImageProps {
 	height: number
 	imgPath: string
 	imgAlt: string
-	author: string
+	author?: string
 }
 
 const BaseImage = ({ width, height, imgPath, imgAlt, author }: BaseImageProps) => {
 	return (
 		<div className="flex flex-col items-center py-8">
 			<Image className="max-w-[640px]" src={imgPath} alt={imgAlt} height={height} width={width} />
-			<small className="pt-1">Bild von {author}</small>
+			{author && <small className="pt-1">Bild von {author}</small>}
 		</div>
 	)
 }

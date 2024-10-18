@@ -1,9 +1,9 @@
-import Image from "next/image"
+import BaseImage from "../base/BaseImage"
 
 const IconPage = () => {
 	return (
 		<article className="px-4 mt-16 fadeInFromBottom  max-w-[1024px]">
-			<Image className="pb-8 mx-auto max-w-[480px]" src="/logo/familie.jpg" alt="Happy family" height={400} width={600} />
+			<BaseImage imgPath="/logo/familie.jpg" imgAlt="Icon of the holy family" height={400} width={600} />
 			<section className="grid gap-y-4">
 				<p>
 					Jest to obraz Świętej Rodziny jako Kościoła Domowego, obraz zjednoczenia (komunii) Świętych Osób. Jednocześnie obraz ten wyraża zjednoczenie, miłość,

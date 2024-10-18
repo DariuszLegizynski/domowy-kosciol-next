@@ -4,6 +4,7 @@ const AboutPage = () => {
 	return (
 		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2 max-w-[1024px]">
 			<section>
+				<h2 className="text-primary text-[2.6rem] leading-[3rem] pb-2">Domowy Kosciól w Austrii</h2>
 				<BaseImage
 					imgPath="/images/about/ioann-mark-kuznietsov-9QTQFihyles-unsplash.jpg"
 					imgAlt="man and woman holding hands together with boy and girl looking at green trees during day"
@@ -12,7 +13,6 @@ const AboutPage = () => {
 					author="Ioann Mark Kuznietsov"
 				/>
 				<div className="grid gap-y-2">
-					<div className="text-primary text-[2.6rem] leading-[3rem] pb-2">Domowy Kosciól w Austrii</div>
 					<p>
 						Ruch Domowy Kosciół w Austrii przy Polskiej Misji Katolickiej Księży Zmartwychwstanców w Wiedniu gromadzi rodziny, które pragną by ich dom stawał
 						się "małym Kościołem".
