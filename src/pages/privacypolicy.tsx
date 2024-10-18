@@ -65,7 +65,7 @@ const PrivacyPolicy = () => {
 						<strong>3. Hosting</strong>
 					</h2>
 					<ol>
-						<li>Serwis jest hostowany (technicznie utrzymywany) na serwerach operatora: inna firma</li>
+						<li>Serwis jest hostowany (technicznie utrzymywany) na serwerach operatora: netcup.de</li>
 
 						<li>
 							Firma hostingowa w celu zapewnienia niezawodności technicznej prowadzi logi na poziomie serwera. Zapisowi mogą podlegać:
@@ -278,17 +278,6 @@ const PrivacyPolicy = () => {
 							</ul>
 						</li>
 					</ol>
-
-					<div className="pt-36">
-						<p>
-							Niniejszy wzór polityki został wygenerowany bezpłatnie, w celach informacyjnych, w oparciu o naszą wiedzę, branżowe praktyki i przepisy prawa
-							obowiązujące na dzień 2018-08-14. Zalecamy sprawdzenie wzoru polityki przed użyciem jej na stronie. Wzór opiera się na najczęściej występujących
-							na stronach internetowych sytuacjach, ale może nie odzwierciedlać pełnej i dokładnej specyfiki Twojej strony www. Przeczytaj uważnie wygenerowany
-							dokument i w razie potrzeb dostosuj go do Twojej sytuacji lub zasięgnij porady prawnej. Nie bierzemy odpowiedzialności za skutki posługiwania się
-							tym dokumentem, ponieważ tylko Ty masz wpłw na to, czy wszystkie informacje w nim zawarte są zgodne z prawdą. Zwróć także uwagę, że Polityka
-							Prywatności, nawet najlepsza, jest tylko jednym z elementów Twojej troski o dane osobowe i prywatność użytkownika na stronie www.
-						</p>
-					</div>
 				</div>
 			</article>
 		</Layout>

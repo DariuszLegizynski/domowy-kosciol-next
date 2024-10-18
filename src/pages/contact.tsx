@@ -219,7 +219,7 @@ const Contact = () => {
 					</div>
 				</article>
 				<section className="flex gap-4 justify-center py-4 bg-primary">
-					<Link href="/privacyPolicy" className="underline-effect justify-self-end fadeInFromBottom w-fit">
+					<Link href="/privacypolicy" className="underline-effect justify-self-end fadeInFromBottom w-fit">
 						<p className="text-white">Polityka Prywatności</p>
 					</Link>
 					<Link href="/impressum" className="underline-effect justify-self-end fadeInFromBottom w-fit">
