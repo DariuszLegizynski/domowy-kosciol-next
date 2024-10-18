@@ -9,6 +9,9 @@ import IconItems from "@/components/IconItems"
 import BaseButton from "@/components/base/BaseButton"
 import BaseText from "@/components/base/BaseText"
 
+// pages
+import Link from "next/link"
+
 // Layout
 import Layout from "@/components/Layout"
 
@@ -215,6 +218,14 @@ const Contact = () => {
 						<BaseButton type="back" />
 					</div>
 				</article>
+				<section className="flex gap-4 justify-center py-4 bg-primary">
+					<Link href="/privacyPolicy" className="underline-effect justify-self-end fadeInFromBottom w-fit">
+						<p className="text-white">Polityka Prywatności</p>
+					</Link>
+					<Link href="/impressum" className="underline-effect justify-self-end fadeInFromBottom w-fit">
+						<p className="text-white">Impressum</p>
+					</Link>
+				</section>
 			</main>
 		</Layout>
 	)
