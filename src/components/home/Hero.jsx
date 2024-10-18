@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -10,7 +12,7 @@ const Hero = () => {
 			const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/home-pages?populate=heroImage`)
 			const content = await response.json()
 
-			setHeroContent(content.data[0].attributes)
+			setHeroContent(content?.data[0]?.attributes)
 		}
 		fetchData()
 	}, [])

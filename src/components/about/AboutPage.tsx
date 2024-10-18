@@ -1,43 +1,66 @@
-import Image from "next/image"
+import BaseImage from "../base/BaseImage"
 
 const AboutPage = () => {
 	return (
-		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2">
+		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2 max-w-[1024px]">
 			<section>
-				<Image className="pb-8" src="/images/about/picture-1.jpg" alt="Happy family" height={400} width={600} />
+				<h2 className="text-primary text-[2.6rem] leading-[3rem] pb-2">Domowy Kosciól w Austrii</h2>
+				<BaseImage
+					imgPath="/images/about/ioann-mark-kuznietsov-9QTQFihyles-unsplash.jpg"
+					imgAlt="man and woman holding hands together with boy and girl looking at green trees during day"
+					height={400}
+					width={600}
+					author="Ioann Mark Kuznietsov"
+				/>
 				<div className="grid gap-y-2">
-					<div className="text-primary text-[2.6rem] leading-[3rem] pb-2">Kochane małżeństwa,</div>
-					<p>macie ochotę na duchową przygodę, która wciągnie Was po uszy?</p>
-					<p>Będzie radośnie, będzie z przytupem i na pewno zabawnie!</p>
-					<p>U nas nie zabraknie rozmów i mega okazji do rozwiązywania własnych problemów z pomocą Bożej łaski płynącej z Sakramentu Małżeństwa.</p>
+					<p>
+						Ruch Domowy Kosciół w Austrii przy Polskiej Misji Katolickiej Księży Zmartwychwstanców w Wiedniu gromadzi rodziny, które pragną by ich dom stawał
+						się "małym Kościołem".
+					</p>
+					<p>
+						Już od piętnastu lat rodziny, których pragnieniem jest bycie bliżej Boga i ludzi we wspólnocie kościelnej, spotykaję się raz w miesiącu w grupach po
+						cztery do sześciu małżeństw.
+					</p>
+					<p>Obecnie istnieje pięć takich grup - kręgów. W spotkaniu kręgu uczestniczy także kapłan-opiekun tzw. doradca duchowy.</p>
 				</div>
 			</section>
 
 			<section>
-				<Image className="py-8" src="/images/about/jed-villejo-4SByp8kIoOE-unsplash.jpg" alt="Happy family" height={400} width={600} />
+				<BaseImage
+					imgPath="/images/about/isabella-fischer-asEF6J0LZ44-unsplash.jpg"
+					imgAlt="silhouette of woman holding rosary while praying"
+					height={400}
+					width={600}
+					author="Isabella Fischer"
+				/>
 				<div className="grid gap-y-2">
 					<p>
-						Poznajcie nas - Domowy Kościół w Austrii przy Polskiej Misji Katolickiej Księży Zmartwychwstańców w Wiedniu – miejsce, gdzie Wasz dom staje się
-						„małym Kościołem” i sercem wspaniałej wspólnoty!
+						Dla lepszego wzrostu duchowego i miłości małżeńskiej, a także pogłębiania więzi braterskiej między małżeństwami, organizowane są dwa razy w roku
+						weekendowe rekolekcje, które najczęściej prowadzi kapłan i para małżeńska przyjeżdżający z Polski.
 					</p>
 					<p>
-						Spotykamy się raz w miesiącu, tworząc tzw kręgi, czyli grupy małżeńskie, żeby być bliżej Boga i siebie nawzajem. Każde spotkanie jest jak wielka
-						duchowa impreza, uczestniczy w nich też nasz ulubiony kapłan – duchowy doradca.
+						Dwa dni wspólnego przebywania ze sobą, wspólnych modlitw i rozmów dają szansę wielu małżenstwom do zastanowienia się nad własnymi problemami i
+						umiejętnym rozwiązywaniem ich przy Bożej pomocy płynącej z Łask Sakramentu Małżeństwa.
 					</p>
 				</div>
 			</section>
 
 			<section>
-				<Image className="py-8" src="/images/about/paz-arando-qZIM5rutBZM-unsplash.jpg" alt="Happy family" height={400} width={600} />
+				<BaseImage
+					imgPath="/images/about/daiga-ellaby-3beArYu-mUo-unsplash.jpg"
+					imgAlt="family camping near body of water during daytime"
+					height={400}
+					width={600}
+					author="Daiga Ellaby"
+				/>
 				<div className="grid gap-y-2">
 					<p>
-						Dwa razy w roku wskakujemy w rekolekcyjne buty i ruszamy na weekendowe wypady, prowadzone przez kapłana i mega inspirującą parę małżeńską z Polski.
+						Rodziny Ruchu "Domowy Kosciól" spotykają się również ze sobą towarzysko. W okresie karnawału jest to czas wspólnego, rodzinnego śpiewania kolęd,
+						czas wspólnej, bezalkoholowej zabawy tanecznej, a także gdy jest już cieplej picknikiem na swieżym powietrzu czy innymi ciekawymi wycieczkami.
 					</p>
-					<p>A gdy robi się cieplej, włączamy tryb piknikowy i robimy fajne wycieczki na świeżym powietrzu.</p>
-					<p>Domowy Kościół w Austrii to część wielkiej rodziny Ruchu Światło-Życie, który zaczynał w Polsce i dzięki emigrantom teraz podbija świat.</p>
 					<p>
-						Dołącz do nas i przeżyj niesamowitą przygodę, poznaj prawdziwego Ojca, Jego Syna, i Ducha, który także jest święty. Zobacz, jak wiele radości może
-						przynieść wspólna wiara i zabawa!
+						Domowy Kościól w Austrii jest gałęzią rodzinną Ruchu Światło Życie, który ma swój początek w Polsce. A dzięki osobom emigrującym ma możliwośc
+						rozwijania się na świecie.
 					</p>
 				</div>
 			</section>
