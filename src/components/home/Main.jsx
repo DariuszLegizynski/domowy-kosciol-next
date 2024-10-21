@@ -1,4 +1,6 @@
-import { useState } from "react"
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -12,8 +14,17 @@ const Main = () => {
 	const [transitioning, setTransitioning] = useState("")
 	const router = useRouter()
 
+	useEffect(() => {
+		const storedIsActive = sessionStorage.getItem("isFishHidden")
+		if (storedIsActive) {
+			setIsActive(storedIsActive === "true")
+		}
+	}, [])
+
 	const handleActive = () => {
-		setIsActive(current => !current)
+		const newIsActive = !isActive
+		sessionStorage.setItem("isFishHidden", newIsActive.toString())
+		setIsActive(newIsActive)
 	}
 
 	const handleTransition = (e, path, direction) => {
@@ -49,6 +60,7 @@ const Main = () => {
 						</Link>
 					)}
 				</section>
+				{/* handle the entry fish icon below */}
 				<section
 					className={`absolute flex flex-col items-center w-32 cursor-pointer transition-transform duration-1000 ease-in-out z-10 ${
 						isActive ? "transform move-fish" : ""
