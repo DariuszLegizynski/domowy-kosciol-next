@@ -1,9 +1,10 @@
+import BaseButton from "@/components/base/BaseButton"
 import Layout from "@/components/Layout"
 
 const PrivacyPolicy = () => {
 	return (
 		<Layout>
-			<article className="max-w-[1024px]">
+			<article className="max-w-[1024px] px-4">
 				<h1>
 					Polityka prywatności <span>wzór</span>
 				</h1>
@@ -211,7 +212,7 @@ const PrivacyPolicy = () => {
 									utrzymanie sesji użytkownika Serwisu (po zalogowaniu), dzięki której użytkownik nie musi na każdej podstronie Serwisu ponownie wpisywać loginu
 									i hasła;
 								</li>
-								<li>realizacji celów określonych powyżej w części "Istotne techniki marketingowe";</li>
+								<li>realizacji celów określonych powyżej w części &quot;Istotne techniki marketingowe&quot;</li>
 							</ol>
 						</li>
 						<li>
@@ -222,9 +223,9 @@ const PrivacyPolicy = () => {
 						</li>
 						<li>
 							Oprogramowanie do przeglądania stron internetowych (przeglądarka internetowa) zazwyczaj domyślnie dopuszcza przechowywanie plików cookies w
-							urządzeniu końcowym Użytkownika. Użytkownicy Serwisu mogą dokonać zmiany ustawień w tym zakresie.&nbsp;Przeglądarka internetowa umożliwia
-							usunięcie plików cookies. Możliwe jest także automatyczne blokowanie plików cookies Szczegółowe informacje na ten temat zawiera pomoc lub
-							dokumentacja przeglądarki internetowej.
+							urządzeniu końcowym Użytkownika. Użytkownicy Serwisu mogą dokonać zmiany ustawień w tym zakresie. Przeglądarka internetowa umożliwia usunięcie
+							plików cookies. Możliwe jest także automatyczne blokowanie plików cookies Szczegółowe informacje na ten temat zawiera pomoc lub dokumentacja
+							przeglądarki internetowej.
 						</li>
 						<li>Ograniczenia stosowania plików cookies mogą wpłynąć na niektóre funkcjonalności dostępne na stronach internetowych Serwisu.</li>
 						<li>
@@ -239,7 +240,7 @@ const PrivacyPolicy = () => {
 					<ol>
 						<li>
 							Jeśli użytkownik nie chce otrzymywać plików cookies, może zmienić ustawienia przeglądarki. Zastrzegamy, że wyłączenie obsługi plików cookies
-							niezbędnych dla procesów uwierzytelniania, bezpieczeństwa, utrzymania preferencji użytkownika może utrudnić,&nbsp;a w skrajnych przypadkach może
+							niezbędnych dla procesów uwierzytelniania, bezpieczeństwa, utrzymania preferencji użytkownika może utrudnić, a w skrajnych przypadkach może
 							uniemożliwić korzystanie ze stron www
 						</li>
 						<li>
@@ -278,6 +279,9 @@ const PrivacyPolicy = () => {
 							</ul>
 						</li>
 					</ol>
+				</div>
+				<div className="py-6 mx-auto">
+					<BaseButton type="back" />
 				</div>
 			</article>
 		</Layout>

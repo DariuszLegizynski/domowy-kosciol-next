@@ -15,7 +15,7 @@ const AboutPage = () => {
 				<div className="grid gap-y-2">
 					<p>
 						Ruch Domowy Kosciół w Austrii przy Polskiej Misji Katolickiej Księży Zmartwychwstanców w Wiedniu gromadzi rodziny, które pragną by ich dom stawał
-						się "małym Kościołem".
+						się &quot;małym Kościołem&quot;.
 					</p>
 					<p>
 						Już od piętnastu lat rodziny, których pragnieniem jest bycie bliżej Boga i ludzi we wspólnocie kościelnej, spotykaję się raz w miesiącu w grupach po
@@ -55,8 +55,9 @@ const AboutPage = () => {
 				/>
 				<div className="grid gap-y-2">
 					<p>
-						Rodziny Ruchu "Domowy Kosciól" spotykają się również ze sobą towarzysko. W okresie karnawału jest to czas wspólnego, rodzinnego śpiewania kolęd,
-						czas wspólnej, bezalkoholowej zabawy tanecznej, a także gdy jest już cieplej picknikiem na swieżym powietrzu czy innymi ciekawymi wycieczkami.
+						Rodziny Ruchu &quot;Domowy Kosciół&quot; spotykają się również ze sobą towarzysko. W okresie karnawału jest to czas wspólnego, rodzinnego śpiewania
+						kolęd, czas wspólnej, bezalkoholowej zabawy tanecznej, a także gdy jest już cieplej picknikiem na swieżym powietrzu czy innymi ciekawymi
+						wycieczkami.
 					</p>
 					<p>
 						Domowy Kościól w Austrii jest gałęzią rodzinną Ruchu Światło Życie, który ma swój początek w Polsce. A dzięki osobom emigrującym ma możliwośc
