@@ -4,8 +4,8 @@ import Layout from "@/components/Layout"
 const impressum = () => {
 	return (
 		<Layout>
-			<article className="max-w-[1024px] pt-16 px-4 mx-auto">
-				<h1>Impressum</h1>
+			<article className="max-w-[1024px] pt-24 px-4 mx-auto">
+				<h1 className="text-center">Impressum</h1>
 				<div className="py-8">
 					<div>
 						<p>
