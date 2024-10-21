@@ -10,8 +10,6 @@ const config: Config = {
 			},
 			colors: {
 				primary: "hsl(26, 100%, 28%)",
-				// accent: "hsl(45, 74%, 50%)",
-				// accent: "hsl(45, 74%, 60%)",
 				accent: "hsl(45, 74%, 40%)",
 				black: "hsl(5, 0%, 0%)",
 				white: "hsl(5, 0%, 100%)",
