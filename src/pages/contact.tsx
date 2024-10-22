@@ -13,7 +13,7 @@ import BaseText from "@/components/base/BaseText"
 import Link from "next/link"
 
 // Layout
-import Layout from "@/components/Layout"
+import Layout from "@/components/layout"
 
 interface ContactContent {
 	name: string

@@ -9,7 +9,7 @@ import FotoGallery from "@/components/fotogallery/FotoGallery"
 import BaseButton from "@/components/base/BaseButton"
 
 // Layout
-import Layout from "@/components/Layout"
+import Layout from "@/components/layout"
 
 import { FotoGallery as fotoGallery } from "@/types/fotoGallery"
 

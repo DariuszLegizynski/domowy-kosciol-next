@@ -1,5 +1,5 @@
 import BaseButton from "@/components/base/BaseButton"
-import Layout from "@/components/Layout"
+import Layout from "@/components/layout"
 
 const PrivacyPolicy = () => {
 	return (

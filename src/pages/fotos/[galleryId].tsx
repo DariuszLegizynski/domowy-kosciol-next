@@ -13,7 +13,7 @@ interface SingleFoto {
 }
 
 // Layout
-import Layout from "@/components/Layout"
+import Layout from "@/components/layout"
 
 // helpers
 import fetchImages from "@/helpers/fetch-images"

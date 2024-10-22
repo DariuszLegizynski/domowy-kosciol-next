@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 import BaseButton from "@/components/base/BaseButton"
-import Layout from "@/components/Layout"
+import Layout from "@/components/layout"
 
 import { getStrapiData } from "@/utils/getStrapiData"
 
