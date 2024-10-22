@@ -26,10 +26,11 @@ body {
 }
 
 .about-background-image {
-	background-image: url("/images/about/hero.jpg");
+	background-image: url("/images/about/hero_small.jpg");
 	background-size: cover;
-	background-position: center 0;
+	background-position: center 0%;
 	background-repeat: no-repeat;
+	background-color: brown;
 	min-height: 40vh;
 }
 

@@ -24,7 +24,7 @@ const Hero = () => {
 			animate={{ height: "60vh" }}
 			transition={{ type: "spring", duration: 2, delay: 1 }}
 		>
-			<h1 className="header-italic mt-8">{heroContent?.title}</h1>
+			<h1 className="header-italic mt-8 text-center">{heroContent?.title}</h1>
 			<section
 				className="z-10 text-center pt-2"
 				dangerouslySetInnerHTML={{
