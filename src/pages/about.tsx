@@ -12,6 +12,8 @@ const About = () => {
 	const [step, setStep] = useState(0)
 	const [aboutContentData, setAboutContentData] = useState({})
 	const [aboutUsMainData, setAboutUsMainData] = useState([])
+	const [aboutUsIconData, setAboutUsIconData] = useState([])
+	const [aboutUsTestimonialsData, setAboutUsTestimonialsData] = useState([])
 
 	const handleClick = (newStep: number) => {
 		setStep(newStep)
@@ -21,15 +23,22 @@ const About = () => {
 		const fetchData = async () => {
 			const responseAboutUs = await getStrapiData(`about-us?populate=title`)
 			setAboutContentData(responseAboutUs?.data?.attributes)
+
 			const responseAboutUsMain = await getStrapiData(`about-us?populate[aboutUsMain][populate][aboutUsContent][populate][image][populate]=*`)
 			setAboutUsMainData(responseAboutUsMain?.data?.attributes?.aboutUsMain)
+
+			const responseAboutUsIcon = await getStrapiData(`about-us?populate[aboutUsIcon][populate][aboutUsIconContent][populate][image][populate]=*`)
+			setAboutUsIconData(responseAboutUsIcon?.data?.attributes?.aboutUsIcon)
+
+			const responseAboutUsTestimonials = await getStrapiData(
+				`about-us?populate[aboutUsTestimonials][populate][aboutUsTestimonialsContent][populate][image][populate]=*`
+			)
+			setAboutUsTestimonialsData(responseAboutUsTestimonials?.data?.attributes?.aboutUsTestimonials)
 		}
 		fetchData()
 	}, [])
 
 	const { title } = aboutContentData
-
-	console.log({ aboutUsMainData })
 
 	return (
 		<Layout>
@@ -48,8 +57,8 @@ const About = () => {
 					<BaseButton onClick={handleClick} type="step" step={2} text="Świadectwa" />
 				</nav>
 				{step === 0 && <AboutPage aboutMainData={aboutUsMainData} />}
-				{step === 1 && <IconPage />}
-				{step === 2 && <TestimonialPage />}
+				{step === 1 && <IconPage aboutIcon={aboutUsIconData} />}
+				{step === 2 && <TestimonialPage aboutTestimonials={aboutUsTestimonialsData} />}
 				<BaseButton type="back" />
 			</main>
 		</Layout>

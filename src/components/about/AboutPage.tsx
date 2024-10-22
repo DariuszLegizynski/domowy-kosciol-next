@@ -1,9 +1,7 @@
 import BaseImage from "../base/BaseImage"
 
 const AboutPage = ({ aboutMainData }) => {
-	console.log({ aboutMainData })
 	const { title, aboutUsContent } = aboutMainData
-	console.log({ title, aboutUsContent })
 	return (
 		<article className="fadeInFromBottom mt-16 px-4 pb-4 grid gap-y-2 max-w-[1024px]">
 			{title && <h2 className="text-primary text-[2.6rem] leading-[3rem] pb-2">{title}</h2>}
