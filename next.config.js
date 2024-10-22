@@ -26,7 +26,7 @@ const nextConfig = {
 			},
 			{
 				protocol: "http",
-				hostname: "89.58.8.55",
+				hostname: "api.domowykosciol.at",
 				port: "1337",
 				pathname: "/**",
 			},
