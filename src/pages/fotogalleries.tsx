@@ -58,10 +58,10 @@ const Fotogallery = () => {
 		return (
 			<FotoGallery
 				addToRefs={addToRefs}
-				key={`gallery_${gallery.id}`}
-				gallery={gallery.attributes}
-				gallerySlug={gallery.attributes.slug}
-				galleryId={gallery.id as number}
+				key={`gallery_${gallery?.id}`}
+				gallery={gallery?.attributes}
+				gallerySlug={gallery?.attributes?.slug}
+				galleryId={gallery?.id as number}
 			/>
 		)
 	})

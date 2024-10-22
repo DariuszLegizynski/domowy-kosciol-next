@@ -60,7 +60,7 @@ const Contact = () => {
 			const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/contact-pages`)
 			const content = await response.json()
 
-			setContactContent(content.data[0].attributes)
+			setContactContent(content?.data[0]?.attributes)
 		}
 		fetchData()
 	}, [])

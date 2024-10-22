@@ -68,8 +68,8 @@ const News = () => {
 		})
 	})
 
-	let renderedListOfNews = news.map((newsItem: NewsItem) => {
-		return <NewsItem addToRefs={addToRefs} key={newsItem.id} newsItem={newsItem.attributes} />
+	let renderedListOfNews = news?.map((newsItem: NewsItem) => {
+		return <NewsItem addToRefs={addToRefs} key={newsItem?.id} newsItem={newsItem?.attributes} />
 	})
 
 	return (
