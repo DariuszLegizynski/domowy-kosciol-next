@@ -4,7 +4,7 @@ import AboutPage from "@/components/about/AboutPage"
 import IconPage from "@/components/about/IconPage"
 import TestimonialPage from "@/components/about/TestimonialPage"
 
-import Layout from "@/components/Layout"
+import Layout from "@/components/layout"
 import BaseButton from "@/components/base/BaseButton"
 import { getStrapiData } from "@/utils/getStrapiData"
 
