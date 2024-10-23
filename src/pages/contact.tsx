@@ -57,13 +57,15 @@ const Contact = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/contact-pages`)
+			const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/contact-page`)
 			const content = await response.json()
 
-			setContactContent(content?.data[0]?.attributes)
+			setContactContent(content) //.data?.attributes)
 		}
 		fetchData()
 	}, [])
+
+	console.log({ contactContent })
 
 	const revealRefs = useRef<HTMLElement[]>([])
 	revealRefs.current = []

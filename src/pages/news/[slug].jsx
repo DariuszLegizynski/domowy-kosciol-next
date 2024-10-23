@@ -19,24 +19,28 @@ const NewsDetails = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = slug ? await fetchNews(`filters[slug][$eq]=${slug}`) : []
+			const response = slug ? await fetchNews(`&filters[slug][$eq]=${slug}`) : []
+
+			console.log({ response })
 
 			if (response[0]) {
 				setEntry(response[0]?.attributes)
-				setDate(response[0]?.attributes?.createdAt.split("T")[0])
+				setDate(response[0]?.attributes?.createdAt ? response[0]?.attributes?.createdAt?.split("T")[0] : new Date())
 			}
 		}
 		fetchData()
 	}, [slug])
 
+	console.log({ entry })
+
 	return (
 		<Layout>
 			<article className="pt-16 border flex flex-col backdrop-blur-sm">
-				{entry?.coverImage?.data?.attributes?.url && (
+				{entry?.coverImage?.foto?.data?.attributes?.url && (
 					<Image
 						className="self-center w-full md:w-[75%] lg:w-[50%]"
-						src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${entry?.coverImage?.data?.attributes?.url}`}
-						alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${entry?.coverImage?.data?.attributes?.alternativeText}`}
+						src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${entry?.coverImage?.foto?.data?.attributes?.url}`}
+						alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${entry?.coverImage?.foto?.data?.attributes?.alternativeText}`}
 						height={400}
 						width={600}
 					/>
@@ -47,7 +51,7 @@ const NewsDetails = () => {
 					<div
 						className="py-4"
 						dangerouslySetInnerHTML={{
-							__html: entry?.content?.map(item => item.children.map(child => child.text).join("")).join(""),
+							__html: entry?.content?.map(item => item.children.map(child => child?.text).join("")).join(""),
 						}}
 					/>
 				</section>
