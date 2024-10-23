@@ -4,6 +4,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 
+// utils
+import { getStrapiData } from "@/utils/getStrapiData"
+
 // Components
 import IconItems from "@/components/IconItems"
 import BaseButton from "@/components/base/BaseButton"
@@ -17,13 +20,15 @@ import Layout from "@/components/layout"
 
 interface ContactContent {
 	name: string
-	phoneNumber?: string
+	phoneNumberA?: string
+	phoneNumberB?: string
 	email?: string
 	curchName?: string
 	curchStreet?: string
 	curchPlzCity?: string
 	curchPriest?: string
 	curchPhone?: string
+	curchEmail?: string
 }
 
 interface FormValues {
@@ -57,15 +62,12 @@ const Contact = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/contact-page`)
-			const content = await response.json()
+			const response = await getStrapiData(`contact-page?populate=*`)
 
-			setContactContent(content) //.data?.attributes)
+			setContactContent(response?.data?.attributes)
 		}
 		fetchData()
 	}, [])
-
-	console.log({ contactContent })
 
 	const revealRefs = useRef<HTMLElement[]>([])
 	revealRefs.current = []
@@ -138,8 +140,14 @@ const Contact = () => {
 							<section className="flex flex-col items-center xl:gap-y-4">
 								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4 xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="phone" width="2rem" height="1.8rem" />
-									<p className="pl-2 w-fit">{contactContent?.phoneNumber}</p>
+									<p className="pl-2 w-fit">{contactContent?.phoneNumberA}</p>
 								</div>
+								{contactContent?.phoneNumberB && (
+									<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4 xl:grid-cols-[3rem_16rem]">
+										<IconItems fillColor="hsl(26, 100%, 28%)" type="phone" width="2rem" height="1.8rem" />
+										<p className="pl-2 w-fit">{contactContent?.phoneNumberB}</p>
+									</div>
+								)}
 								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="email" width="2rem" height="2rem" />
 									<p className="pl-2">{contactContent?.email}</p>
@@ -157,7 +165,8 @@ const Contact = () => {
 								<p>{contactContent?.curchStreet}</p>
 								<p>{contactContent?.curchPlzCity}</p>
 								<p>{contactContent?.curchPriest}</p>
-								<p>{contactContent?.curchPhone}</p>
+								{contactContent?.curchPhone && <p>{contactContent?.curchPhone}</p>}
+								{contactContent?.curchEmail && <p>{contactContent?.curchEmail}</p>}
 							</div>
 							<a className="p flex flex-col w-auto items-center justify-center pt-8" href="https://maps.app.goo.gl/MdC4i2TpQr2CWDsi6" target="_blank">
 								<IconItems type="map" width="3rem" height="3rem" />
