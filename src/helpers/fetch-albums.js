@@ -1,5 +1,5 @@
 const fetchAlbums = async () => {
-	const albumsData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/galleries?populate=coverImage`)
+	const albumsData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/galleries?populate[coverImage][populate]=*`)
 	const albums = await albumsData.json()
 
 	return albums.data

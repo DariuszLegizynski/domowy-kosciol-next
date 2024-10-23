@@ -41,10 +41,14 @@ export interface FotoGalleryAttributes {
 	createdAt: string
 	title: string
 	coverImage: {
-		data: {
-			attributes: CoverImage
-			id: number
+		author: string
+		foto: {
+			data: {
+				attributes: CoverImage
+				id: number
+			}
 		}
+		id: number
 	}
 	description: string
 	shortDescription: string

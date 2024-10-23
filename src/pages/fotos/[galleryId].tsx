@@ -24,6 +24,8 @@ const Fotos = () => {
 
 	const [images, setImages] = useState([])
 
+	console.log({ images })
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = galleryId ? await fetchImages(`?filters[slug][$eq]=${galleryId}&populate=images`) : []
@@ -33,23 +35,23 @@ const Fotos = () => {
 		fetchData()
 	}, [galleryId])
 
-	let renderFotos = images?.map((image: SingleFoto) => (
-		<Image
-			key={image.id}
-			src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${image.attributes.url}`}
-			alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${image.attributes.alternativeText}`}
-			width={800}
-			height={600}
-		/>
-	))
+	// let renderFotos = images?.map((image: SingleFoto) => (
+	// 	<Image
+	// 		key={image?.id}
+	// 		src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${image?.attributes?.url}`}
+	// 		alt={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/${image?.attributes?.alternativeText}`}
+	// 		width={800}
+	// 		height={600}
+	// 	/>
+	// ))
 
 	return (
 		<Layout>
 			<article className="pt-16 mx-auto">
-				<section className="px-8 columns-1 xs:columns-2 md:columns-3 3xl:columns-4">{renderFotos}</section>
+				{/* <section className="px-8 columns-1 xs:columns-2 md:columns-3 3xl:columns-4">{renderFotos}</section>
 				<div className="flex flex-col items-center">
 					<BaseButton type="back" />
-				</div>
+				</div> */}
 			</article>
 		</Layout>
 	)

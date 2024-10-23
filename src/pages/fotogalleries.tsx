@@ -68,7 +68,7 @@ const Fotogallery = () => {
 
 	return (
 		<Layout>
-			<main className="grid grid-cols-1 items-center justify-between">
+			<main className="grid grid-cols-1 items-center justify-between min-h-screen">
 				<h1 className="text-center mt-24 mb-12">Zdjęcia</h1>
 				<section className="grid sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-y-8">{renderGalleries}</section>
 				<BaseButton type="back" />
