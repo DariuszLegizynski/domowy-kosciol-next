@@ -148,7 +148,7 @@ const Contact = () => {
 										<p className="pl-2 w-fit">{contactContent?.phoneNumberB}</p>
 									</div>
 								)}
-								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start xl:grid-cols-[3rem_16rem]">
+								<div className="grid grid-cols-[3rem_12rem] items-center justify-items-start py-4 xl:grid-cols-[3rem_16rem]">
 									<IconItems fillColor="hsl(26, 100%, 28%)" type="email" width="2rem" height="2rem" />
 									<p className="pl-2">{contactContent?.email}</p>
 								</div>
